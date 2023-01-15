@@ -292,7 +292,7 @@ $recordnav -> output();
 		</tr>
 	</table>
 </form>
-<a href="https://programmisitiweb.lacasettabio.it/quaderno-di-campagna/" target="_blank" class="navbar-fixed-bottom" style="max-width:350px; left:20%; z-index:2000;"> Registro di campagna è un modulo di Aurora SRL</a>
+<a href="https://www.aurorasrl.it" target="_blank" class="navbar-fixed-bottom" style="max-width:350px; left:20%; z-index:2000;"> Registro di campagna è un modulo di Aurora SRL</a>
 <?php
 require("../../library/include/footer.php");
 ?>
