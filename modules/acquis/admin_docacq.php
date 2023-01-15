@@ -2,8 +2,8 @@
 /*
   --------------------------------------------------------------------------
   GAzie - Gestione Azienda
-  Copyright (C) 2004-2023 - Antonio De Vincentiis Montesilvano (PE)
-  (http://www.devincentiis.it)
+  Copyright (C) 2004-2023 - Aurora SRL Alia (PA)
+  (http://www.aurorasrl.it)
   <http://gazie.sourceforge.net>
   --------------------------------------------------------------------------
   Questo programma e` free software;   e` lecito redistribuirlo  e/o
@@ -673,7 +673,7 @@ if ((isset($_POST['Insert'])) || ( isset($_POST['Update']))) {   //se non e' il 
                             gaz_dbi_del_row($gTables['body_text'], "table_name_ref = 'rigdoc' AND id_ref", $val_old_row['id_rig']);
                         }
 
-                      // Antonio Germani - inizio salvataggio lotti e magazzino
+                      // Aurora SRL - inizio salvataggio lotti e magazzino
                       if ($form['rows'][$i]['lot_or_serial'] > 0){ // se l'articolo prevede lotti
 
                         if ($form['rows'][$i]['expiry']>0){ // se c'è una scadenza
@@ -734,7 +734,7 @@ if ((isset($_POST['Insert'])) || ( isset($_POST['Update']))) {   //se non e' il 
                           $id_lotmag=0;
                       }
 
-                        if ($form['rows'][$i]['tiprig'] <> 2) { // Antonio Germani - se NON è un rigo descrittivo
+                        if ($form['rows'][$i]['tiprig'] <> 2) { // Aurora SRL - se NON è un rigo descrittivo
                         // reinserisco il movimento magazzino associato e lo aggiorno
                           $id_movmag=$magazz->uploadMag($val_old_row['id_rig'], $form['tipdoc'], $form['numdoc'], $form['seziva'], $datemi, $form['clfoco'], $form['sconto'], $form['caumag'], $form['rows'][$i]['codart'], $form['rows'][$i]['quanti'], $form['rows'][$i]['prelis'], $form['rows'][$i]['sconto'], 0, $admin_aziend['stock_eval_method'], false, $form['protoc'],$id_lotmag,0,0,'',$form['rows'][$i]['id_warehouse']);
 
@@ -884,7 +884,7 @@ if ((isset($_POST['Insert'])) || ( isset($_POST['Update']))) {   //se non e' il 
                     $sql_documento = "YEAR(datemi) = " . substr($datemi,0,4) . " AND tipdoc = 'AFC' AND seziva = $sezione";
                     $where = "numfat desc";
                     break;
-                  case "RDL": // Antonio Germani aggiunto case RDL perché si creava un "Notice: Undefined variable: sql_documento
+                  case "RDL": // Aurora SRL aggiunto case RDL perché si creava un "Notice: Undefined variable: sql_documento
                     $sql_documento = "YEAR(datemi) = " . substr($datemi,0,4);
                     break;
                 }
@@ -1411,7 +1411,7 @@ if ((isset($_POST['Insert'])) || ( isset($_POST['Update']))) {   //se non e' il 
         unset($updated_row);
     }
 
-//Antonio Germani - Se viene richiesto di aggiornare il prezzo delll'articolo sulla tabella artico
+//Aurora SRL - Se viene richiesto di aggiornare il prezzo delll'articolo sulla tabella artico
 	if (isset($_POST['updateprice'])){
 		$updri = key($_POST['updateprice']);
 		If ($form['rows'][$updri]['codart']==""){
@@ -1476,7 +1476,7 @@ if ((isset($_POST['Insert'])) || ( isset($_POST['Update']))) {   //se non e' il 
     $id_des = $anagrafica->getPartner($tesdoc['id_des']);
     $rs_rig = gaz_dbi_dyn_query("*", $gTables['rigdoc'], "id_tes = " . $tesdoc['id_tes'], "id_rig asc");
 	$rs_tes =false;
-	if ($tesdoc['ddt_type']=="T" && !isset($_GET['DDT'])){ // Antonio Germani - se è una fattura con DDT, carico tutti i tesdoc
+	if ($tesdoc['ddt_type']=="T" && !isset($_GET['DDT'])){ // Aurora SRL - se è una fattura con DDT, carico tutti i tesdoc
 	$rs_tes = gaz_dbi_dyn_query("*", $gTables['tesdoc'], " YEAR (datfat) = " . substr($tesdoc['datfat'],0,4). " AND protoc = ".$tesdoc['protoc']. " AND tipdoc = 'AFT'" , "id_tes asc");
 
 	}
@@ -2485,7 +2485,7 @@ echo '<input type="hidden" value="' . $strArrayDest . '" name="rs_destinazioni">
 						$lm_acc = '';
 						if ($v['lot_or_serial'] > 0) {
 
-							if ($form['tipdoc']!="DDR" AND $form['tipdoc']!="DDL"){ // Antonio Germani - se non è Documento di Reso o di conto lavorazione apro gestione lotti come nuovo inserimento
+							if ($form['tipdoc']!="DDR" AND $form['tipdoc']!="DDL"){ // Aurora SRL - se non è Documento di Reso o di conto lavorazione apro gestione lotti come nuovo inserimento
 								if (empty($form['rows'][$k]['filename'])) {
 									$lm_acc .='<div><button class="btn btn-xs btn-danger" type="image" data-toggle="collapse" href="#lm_dialog' . $k . '">'
 									. $script_transl['insert'] . 'certificato  <i class="glyphicon glyphicon-tag"></i>'
@@ -2517,7 +2517,7 @@ echo '<input type="hidden" value="' . $strArrayDest . '" name="rs_destinazioni">
 							} else { // altrimenti apro gestione lotti con scelta fra esistenti
 
 								$lm->getAvailableLots($v['codart'], $v['id_mag']);
-								// Antonio Germani - calcolo delle giacenze per ogni singolo lotto
+								// Aurora SRL - calcolo delle giacenze per ogni singolo lotto
 								$count=array();
 								foreach ($lm->available as $v_lm) {
 									$key=$v_lm['identifier']; // chiave per il conteggio dei totali raggruppati per lotto
@@ -2588,7 +2588,7 @@ echo '<input type="hidden" value="' . $strArrayDest . '" name="rs_destinazioni">
 							$lm_acc .=' <input type="hidden" value="' . $v['expiry'] . '" name="rows[' . $k . '][expiry]" />';
 						}
 
-						// Antonio Germani - Se l'articolo movimenta il SIAN apro il div SIAN
+						// Aurora SRL - Se l'articolo movimenta il SIAN apro il div SIAN
 						if ($form['rows'][$k]['SIAN']>0) {
 							?>
 							<style>

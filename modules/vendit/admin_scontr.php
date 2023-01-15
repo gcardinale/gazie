@@ -3,8 +3,8 @@
 /*
   --------------------------------------------------------------------------
   GAzie - Gestione Azienda
-  Copyright (C) 2004-2023 - Antonio De Vincentiis Montesilvano (PE)
-  (http://www.devincentiis.it)
+  Copyright (C) 2004-2023 - Aurora SRL Alia (PA)
+  (http://www.aurorasrl.it)
   <http://gazie.sourceforge.net>
   --------------------------------------------------------------------------
   Questo programma e` free software;   e` lecito redistribuirlo  e/o
@@ -316,7 +316,7 @@ if ((isset($_POST['Insert'])) or ( isset($_POST['Update']))) {   //se non e' il 
                     $msg['err'][] = "lotteria";
                 }
             }
-			// Antonio Germani - controllo input su rigo SIAN
+			// Aurora SRL - controllo input su rigo SIAN
 			if ($v['SIAN']>0){
 				if ($v['cod_operazione'] < 0 or $v['cod_operazione']==11){ // controllo se è stato inserito il codice operazione SIAN
 					$msgrigo = $i + 1;
@@ -350,7 +350,7 @@ if ((isset($_POST['Insert'])) or ( isset($_POST['Update']))) {   //se non e' il 
 					$msg['err'][] = "soloconf"; // Cessione omaggio solo confezionato
 				}
 			}
-			// Antonio Germani - controllo input su lotti rigo
+			// Aurora SRL - controllo input su lotti rigo
 			if ($v['lot_or_serial']>0){
 				// controllo se per questo ID lotto la quantità richiesta è sufficiente
 				$idmag="";
@@ -391,7 +391,7 @@ if ((isset($_POST['Insert'])) or ( isset($_POST['Update']))) {   //se non e' il 
             if ($toDo == 'update') { // e' una modifica
                 $old_rows = gaz_dbi_dyn_query("*", $gTables['rigdoc'], "id_tes = " . $form['id_tes'], "id_tes, id_rig");
 
-                // Antonio Germani - Elimino tutti i vecchi righi
+                // Aurora SRL - Elimino tutti i vecchi righi
                 while ($val_old_row = gaz_dbi_fetch_array($old_rows)) {
                   if (intval($val_old_row['id_mag']) > 0) {  //se c'era un movimento di magazzino lo azzero
                         $magazz->uploadMag('DEL', $form['tipdoc'], '', '', '', '', '', '', '', '', '', '', $val_old_row['id_mag'], $admin_aziend['stock_eval_method']);
@@ -401,7 +401,7 @@ if ((isset($_POST['Insert'])) or ( isset($_POST['Update']))) {   //se non e' il 
                   gaz_dbi_del_row($gTables['rigdoc'], 'id_rig', $val_old_row['id_rig']); // elimino il rigdoc
                 }
 
-                //Antonio Germani - inserisco nuovamente righi
+                //Aurora SRL - inserisco nuovamente righi
                 foreach ($form['rows'] as $v) {
                     $v['id_tes'] = $form['id_tes'];
                     $last_rigdoc_id=rigdocInsert($v);
@@ -837,9 +837,9 @@ if ((isset($_POST['Insert'])) or ( isset($_POST['Update']))) {   //se non e' il 
 				$war="warning";//per evitare di avvisare più volte nel caso di più righi con lo stesso problema
 			}
 		}
-		// Antonio Germani - controllo input su lotti rigo
+		// Aurora SRL - controllo input su lotti rigo
 		if ($v['lot_or_serial']>0){
-			// Antonio Germani - controllo se un ID lotto è presente in più righi
+			// Aurora SRL - controllo se un ID lotto è presente in più righi
 			$n=0;
 			foreach ($form['rows'] as $ii => $vv){
 				if ($v['id_lotmag']==$vv['id_lotmag']){
@@ -1391,7 +1391,7 @@ if (!(count($msg['err']) > 0 || count($msg['war']) > 0)) { // ho un errore non s
                         $lm_acc .= '</div>'
                                 . '</div>';
                     }
-					// Antonio Germani - Se l'articolo movimenta il SIAN apro il div SIAN
+					// Aurora SRL - Se l'articolo movimenta il SIAN apro il div SIAN
 					if ($form['rows'][$k]['SIAN']>0) {
 						$art = gaz_dbi_get_row($gTables['camp_artico'], "codice", $v['codart']);
 						?>
@@ -1509,7 +1509,7 @@ if (!(count($msg['err']) > 0 || count($msg['war']) > 0)) { // ho un errore non s
                     $select_artico = new selectartico("in_codart");
                     $select_artico->addSelected($form['in_codart']);
                     $select_artico->output(substr($form['cosear'], 0,32), 'C');
-              // Antonio Germani - input con pistola lettore codice a barre
+              // Aurora SRL - input con pistola lettore codice a barre
 							if ($form['ok_barcode']!="ok"){
 								?>
 										<button type="submit" name="button_ok_barcode" class="btn btn-info btn-xs" title="inserisci con pistola Barcode">
@@ -1533,7 +1533,7 @@ if (!(count($msg['err']) > 0 || count($msg['war']) > 0)) { // ho un errore non s
 									<?php
 								}
 							}
-						// Antonio Germani - fine input con pistola lettore codice a barre -->
+						// Aurora SRL - fine input con pistola lettore codice a barre -->
 						?>
 						</div>
 					</div>

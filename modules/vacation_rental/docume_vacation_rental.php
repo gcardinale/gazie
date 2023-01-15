@@ -2,14 +2,14 @@
 /*
  --------------------------------------------------------------------------
   GAzie - MODULO 'VACATION RENTAL'
-  Copyright (C) 2022-2023 - Antonio Germani, Massignano (AP) - telefono +39 340 50 11 912
+  Copyright (C) 2022-2023 - Aurora SRL, Alia (PA) - telefono +39 340 50 11 912
   (http://www.programmisitiweb.lacasettabio.it)
 
   --------------------------------------------------------------------------
   --------------------------------------------------------------------------
   GAzie - Gestione Azienda
-  Copyright (C) 2004-2023 - Antonio De Vincentiis Montesilvano (PE)
-  (http://www.devincentiis.it)
+  Copyright (C) 2004-2023 - Aurora SRL Alia (PA)
+  (http://www.aurorasrl.it)
   <http://gazie.sourceforge.net>
   --------------------------------------------------------------------------
   Questo programma e` free software;   e` lecito redistribuirlo  e/o
@@ -42,9 +42,9 @@ $admin_aziend=checkAdmin(9);
 		</div>
 		<h4> Gestione di prenotazione alloggi con sincronizzazione diretta e generazione di Ical</h4>
 		<h5>
-			<p>Il modulo "VACATION RENTAL" per GAZIE (Gestione AZIEnda) è di proprietà di Antonio Germani, ogni diritto è riservato.</p>
+			<p>Il modulo "VACATION RENTAL" per GAZIE (Gestione AZIEnda) è di proprietà di Aurora SRL, ogni diritto è riservato.</p>
 			<p>Il suo utilizzo è possibile solo dietro autorizzazione dell'autore.</p>
-			<p>Copyright (C) - Antonio Germani Massignano (AP) https://www.programmisitiweb.lacasettabio.it - telefono +39 340 50 11 912</p>
+			<p>Copyright (C) - Aurora SRL Alia (PA) https://www.aurorasrl.it - telefono +39 340 50 11 912</p>
 		</h5>
     <h5><b>
     -------->    Versione 2.2    <---------
@@ -98,7 +98,7 @@ $admin_aziend=checkAdmin(9);
         <li>Pagina front-end di accesso utente alla prenotazione con possibilità di effettuare pagamenti e lasciare la recensione</li>
         <li>Gestione dei feedback. Al check-out verrà inviata, al cliente, la richiesta di lasciare una recensione con voti su elementi personalizzabili e commento</li>
       </ul>
-      <p>Per la versione PRO contattare lo sviluppatore: Antonio Germani Massignano (AP) https://www.programmisitiweb.lacasettabio.it - telefono +39 340 50 11 912</p>
+      <p>Per la versione PRO contattare lo sviluppatore: Aurora SRL Alia (PA) https://www.aurorasrl.it - telefono +39 340 50 11 912</p>
       <p><h3>Sito demo per testare il lato cliente su un sito Joomla di esempio: https://tony.netsons.org/index.php/it/</h3></p>
       <p><h3>Per il sito demo gestionale (GAzie) contattare lo sviluppatore per avere senza impegno le chiavi di accesso test</h3></p>
     </div>

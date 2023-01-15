@@ -2,8 +2,8 @@
 /*
   --------------------------------------------------------------------------
   GAzie - Gestione Azienda
-  Copyright (C) 2004-2023 - Antonio De Vincentiis Montesilvano (PE)
-  (http://www.devincentiis.it)
+  Copyright (C) 2004-2023 - Aurora SRL Alia (PA)
+  (http://www.aurorasrl.it)
   <http://gazie.sourceforge.net>
   --------------------------------------------------------------------------
   Questo programma e` free software;   e` lecito redistribuirlo  e/o
@@ -86,7 +86,7 @@ $show_artico_composit = gaz_dbi_get_row($gTables['company_config'], 'var', 'show
             $gForm = new magazzForm();
 			$show_artico_composit = gaz_dbi_get_row($gTables['company_config'], 'var', 'show_artico_composit');
 			$tipo_composti = gaz_dbi_get_row($gTables['company_config'], 'var', 'tipo_composti');
-            // Antonio Germani -  se siamo in composti STD si prendono anche gli articoli composti
+            // Aurora SRL -  se siamo in composti STD si prendono anche gli articoli composti
             if ( $tipo_composti['val']=="STD") {
                 $result = gaz_dbi_dyn_query("*", $gTables['artico'], "good_or_service != 1 and ". $where, $orderby, $limit, $passo);               
             } else { // se siamo in composti KIT si prendono solo gli articoli normali
@@ -102,7 +102,7 @@ $show_artico_composit = gaz_dbi_get_row($gTables['company_config'], 'var', 'show
                 $mv = $gForm->getStockValue(false, $r['codice']);
                 $magval = array_pop($mv);
                 $magval=(is_numeric($magval))?['q_g'=>0,'v_g'=>0]:$magval;
-				if (isset ($magval['q_g']) && round($magval['q_g'],6) == "-0"){ // Antonio Germani - se si crea erroneamente un numero esponenziale negativo forzo la quantità a zero
+				if (isset ($magval['q_g']) && round($magval['q_g'],6) == "-0"){ // Aurora SRL - se si crea erroneamente un numero esponenziale negativo forzo la quantità a zero
 					$magval['q_g']=0;
 				}
                 $totale = $magval['q_g']-$ordinatic+$ordinatif;

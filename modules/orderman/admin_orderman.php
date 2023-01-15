@@ -2,8 +2,8 @@
 /*
   --------------------------------------------------------------------------
   GAzie - Gestione Azienda
-  Copyright (C) 2004-2023 - Antonio De Vincentiis Montesilvano (PE)
-  (http://www.devincentiis.it)
+  Copyright (C) 2004-2023 - Aurora SRL Alia (PA)
+  (http://www.aurorasrl.it)
   <http://gazie.sourceforge.net>
   --------------------------------------------------------------------------
   Questo programma e` free software;   e` lecito redistribuirlo  e/o
@@ -408,7 +408,7 @@ if ((isset($_POST['Insert'])) || (isset($_POST['Update']))){ // se NON è il pri
         }
 
         if ($msg == "") { // nessun errore
-            // Antonio Germani >>>> inizio SCRITTURA dei database    §§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§
+            // Aurora SRL >>>> inizio SCRITTURA dei database    §§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§
             //echo"<pre>",print_r($form);die;
           $start_work = date_format(date_create_from_format('d-m-Y', $form['iniprod']), 'Y-m-d')." ".$form['iniprodtime'];
           $end_work = date_format(date_create_from_format('d-m-Y', $form['fineprod']), 'Y-m-d')." ".$form['fineprodtime'];
@@ -640,7 +640,7 @@ if ((isset($_POST['Insert'])) || (isset($_POST['Update']))){ // se NON è il pri
             }
 
           $id_lotmag="";
-          //Antonio Germani - > inizio LOTTO ARTICOLO PRODOTTO, se c'è lotto e se il prodotto lo richiede
+          //Aurora SRL - > inizio LOTTO ARTICOLO PRODOTTO, se c'è lotto e se il prodotto lo richiede
           if ($form['lot_or_serial'] > 0) { // se l'articolo prodotto prevede un lotto
 
             // ripulisco il numero lotto inserito da caratteri dannosi
@@ -673,7 +673,7 @@ if ((isset($_POST['Insert'])) || (isset($_POST['Update']))){ // se NON è il pri
 
             }
           }
-          // Antonio Germani - inizio salvo documento/CERTIFICATO lotto
+          // Aurora SRL - inizio salvo documento/CERTIFICATO lotto
           if (substr($form['filename'], 0, 7) <> 'lotmag_') { // se è stato cambiato il file, cioè il nome non inizia con lotmag e, quindi, anche se è un nuovo insert
             if (!empty($form['filename'])) { // e se ha un nome impostato nel form
               $tmp_file = DATA_DIR."files/tmp/" . $admin_aziend['adminid'] . '_' . $admin_aziend['company_id'] . '_' . $form['filename'];
@@ -926,7 +926,7 @@ if (isset($_POST['Cancel'])) { // se è stato premuto ANNULLA
   $form['id_lotmag'] = "";
   $form['numcomp'] = 0;
 }
-if (!empty($_FILES['docfile_']['name'])) { // Antonio Germani - se c'è un nome in $_FILES
+if (!empty($_FILES['docfile_']['name'])) { // Aurora SRL - se c'è un nome in $_FILES
     $prefix = $admin_aziend['adminid'] . '_' . $admin_aziend['company_id'];
     foreach (glob(DATA_DIR."files/tmp/" . $prefix . "_*.*") as $fn) { // prima cancello eventuali precedenti file temporanei
         unlink($fn);
@@ -984,7 +984,7 @@ if (!empty($warnmsg)) {
 if ($toDo == 'update') {
   echo "<tr><td class=\"FacetFieldCaptionTD\">$script_transl[0]</td><td class=\"FacetDataTD\"><input type=\"hidden\" name=\"id\" value=\"" . $form['id'] . "\" />" . $form['id'] . "</td></tr>\n";
 }
-// Antonio Germani > inserimento tipo di produzione
+// Aurora SRL > inserimento tipo di produzione
 echo "<tr><td class=\"FacetFieldCaptionTD\">$script_transl[1]</td><td class=\"FacetDataTD\">";
 ?>
 <script>
@@ -1021,7 +1021,7 @@ if ($form['order_type'] == "IND") {
 <?php
 if ($form['order_type'] <> "AGR") { // Se non è produzione agricola
 
-    // Antonio Germani > inserimento ordine
+    // Aurora SRL > inserimento ordine
 	?>
 	<tr>
 		<td class="FacetFieldCaptionTD"><?php echo $script_transl['8']; ?> </td>
@@ -1050,7 +1050,7 @@ if ($form['order_type'] <> "AGR") { // Se non è produzione agricola
 		$gForm->selectFromDB('rigbro', 'cosear','codart', $form['codart'], 'id_tes', 1, ' - ','descri','TRUE','FacetSelect' , null, '','id_tes = '. $form['id_tes'].' ');
 	} else { //se non c'è l'ordine seleziono l'articolo da artico
 		?>
-		<!-- Antonio Germani > inserimento articolo	con autocomplete dalla tabella artico-->
+		<!-- Aurora SRL > inserimento articolo	con autocomplete dalla tabella artico-->
 		<tr>
 		<td class="FacetFieldCaptionTD"><?php echo $script_transl['9']; ?> </td>
 		<td colspan="2" class="FacetDataTD">
@@ -1275,7 +1275,7 @@ if ($form['order_type'] <> "AGR") { // Se non è produzione agricola
               <div class="row" style="margin-left: 0px;">
                 <div class="col-sm-3 "  style="background-color:lightcyan;"><?php echo $row['codice_artico_base']; ?>
                 </div>
-                <!-- Antonio Germani devo usare number_format perché la funzione gaz_format_quantity non accetta più di 3 cifre dopo la virgola. -->
+                <!-- Aurora SRL devo usare number_format perché la funzione gaz_format_quantity non accetta più di 3 cifre dopo la virgola. -->
                 <div class="col-sm-4 "  style="background-color:lightcyan;"><?php echo $row['unimis']," ","Necessari: ", number_format(str_replace(",","",$row['quantita_artico_base']),5,",","."); ?>
                 </div>
                 <div class="col-sm-4 "  style="background-color:lightcyan;"><?php echo "Disponibili: ", number_format($magval['q_g'],5,",","."); ?>
@@ -1296,7 +1296,7 @@ if ($form['order_type'] <> "AGR") { // Se non è produzione agricola
               </div> <!-- chiude row del nome articolo composto -->
               <?php
             }
-            // Antonio Germani - Inizio form SIAN
+            // Aurora SRL - Inizio form SIAN
             if ($row['SIAN']>0 AND $form['order_type'] == "IND"){ // se l'articolo prevede un movimento SIAN e siamo su prod.industriale
               $rescampbase = gaz_dbi_get_row($gTables['camp_artico'], "codice", $row['codice_artico_base']);
               if ($rescampbase['confezione']==0){ // se è sfuso apro la richiesta contenitore
@@ -1328,7 +1328,7 @@ if ($form['order_type'] <> "AGR") { // Se non è produzione agricola
             // non faccio nulla, ho già fatto prima
             } else {
 
-              // Antonio Germani - inserimento lotti in uscita
+              // Aurora SRL - inserimento lotti in uscita
               $artico = gaz_dbi_get_row($gTables['artico'], "codice", $row['codice_artico_base']);
               if ($artico['lot_or_serial'] == 1) { // se il componente prevede lotti
 
@@ -1461,7 +1461,7 @@ if ($form['order_type'] <> "AGR") { // Se non è produzione agricola
 
                   for ($cl = 0; $cl < $l; $cl++) {
                     ?>
-                    <!-- Antonio Germani - Cambio lotto -->
+                    <!-- Aurora SRL - Cambio lotto -->
                     <div id="lm_dialog<?php echo $nc,$cl;?>" class="collapse" >
                       <?php
                       if ((count($lm->available) > 1)) {
@@ -1509,7 +1509,7 @@ if ($form['order_type'] <> "AGR") { // Se non è produzione agricola
             $nc++;
 					}
 				}
-				echo '<input type="hidden" name="numcomp" value="' . $nc . '">'; // Antonio Germani - Nota bene: numcomp ha sempre una unità in più! Non l'ho tolta per distinguere se c'è un solo componente o nessuno.
+				echo '<input type="hidden" name="numcomp" value="' . $nc . '">'; // Aurora SRL - Nota bene: numcomp ha sempre una unità in più! Non l'ho tolta per distinguere se c'è un solo componente o nessuno.
 		?>
 		</div>	<!-- chiude container  -->
 		<?php
@@ -1517,7 +1517,7 @@ if ($form['order_type'] <> "AGR") { // Se non è produzione agricola
 	?>
 	</td>
 	</tr>
-	<?php // Antonio Germani - Inizio form SIAN
+	<?php // Aurora SRL - Inizio form SIAN
 	if ($form['SIAN'] > 0 && $form['order_type'] == "IND") { // se l'articolo prevede un movimento SIAN e siamo su prod.industriale
 		$rescampbase = gaz_dbi_get_row($gTables['camp_artico'], "codice", $form['codart']);
 		echo "<tr><td class=\"FacetFieldCaptionTD\">Gestione SIAN</td>";
@@ -1565,7 +1565,7 @@ if ($form['order_type'] <> "AGR") { // Se non è produzione agricola
 	}
 
 	?>
-	<!--- Antonio Germani - inserimento quantità  -->
+	<!--- Aurora SRL - inserimento quantità  -->
 	<tr>
 		<td class="FacetFieldCaptionTD"><?php echo $script_transl['15']; ?> </td>
 		<td colspan="2" class="FacetDataTD">
@@ -1575,7 +1575,7 @@ if ($form['order_type'] <> "AGR") { // Se non è produzione agricola
 				<input type="text" name="quantip" onchange="this.form.submit()" value="<?php echo $form['quantip']; ?>" />
 				<?php
 				echo ($resartico)?$resartico['unimis']:'';
-				// Antonio Germani - Visualizzo quantità prodotte e rimanenti
+				// Aurora SRL - Visualizzo quantità prodotte e rimanenti
 				if (($form['order']) > 0 && strlen($form['codart']) > 0) { // se c'è un ordine e c'è un articolo selezionato, controllo se è già stato prodotto
 
 					if ($quantiprod > 0) { // se c'è stata già una produzione per questo articolo e per questo ordine
@@ -1606,7 +1606,7 @@ if ($form['order_type'] <> "AGR") { // Se non è produzione agricola
 } else { // se è produzione agricola
    echo "<tr><td><input type=\"hidden\" name=\"order\" value=\"\">";
 	?>
-	<!-- Antonio Germani > inserimento articolo	con autocomplete dalla tabella artico-->
+	<!-- Aurora SRL > inserimento articolo	con autocomplete dalla tabella artico-->
 	<tr>
 	<td class="FacetFieldCaptionTD"><?php echo $script_transl['9']; ?> </td>
 	<td colspan="2" class="FacetDataTD">
@@ -1632,7 +1632,7 @@ if ($form['order_type'] <> "AGR") { // Se non è produzione agricola
   <?php
 }
 ?>
-<!--- Antonio Germani - inserimento descrizione  -->
+<!--- Aurora SRL - inserimento descrizione  -->
 <tr>
 	<td class="FacetFieldCaptionTD"><?php echo $script_transl['2']; ?> </td>
 	<td colspan="2" class="FacetDataTD">
@@ -1684,18 +1684,18 @@ if ($form['order_type'] <> "AGR") { // Se non è produzione agricola
 if (!isset($form['datemi']) || strlen($form['datemi'])==0 || intval($form['datemi'])==0){//quando non c'è la data emissione la select addetto blocca tutto il form, quindi ci metto quella di inizio produzione
   $form['datemi']=date ("Y-m-d");
 }
-// Antonio Germani > DURATA produzione
+// Aurora SRL > DURATA produzione
 
 echo "<tr><td class=\"FacetFieldCaptionTD\">$script_transl[11]</td>";
 
 echo "<td class=\"FacetDataTD\"><input type=\"number\" name=\"day_of_validity\" min=\"0\" maxlength=\"3\" step=\"any\"  size=\"10\" value=\"" . $form['day_of_validity'] . "\"  /></td></tr>\n";
-/*Antonio Germani LUOGO di produzione  */
+/*Aurora SRL LUOGO di produzione  */
 echo "<tr><td class=\"FacetFieldCaptionTD\">" . $script_transl[7] . "</td><td class=\"FacetDataTD\">\n";
 // SELECT luogo di produzione da campi
 $gForm->selectFromDB('campi', 'campo_impianto','codice', $form['campo_impianto'], 'codice', 1, ' - ','descri','TRUE','FacetSelect' , null, '');
 echo "</td></tr>";
 
-// Antonio Germani selezione responsabile o addetto alla produzione fra l'elenco staff
+// Aurora SRL selezione responsabile o addetto alla produzione fra l'elenco staff
 // SELECT da staff con acquisizione nome da clfoco
 echo "<tr><td class=\"FacetFieldCaptionTD\">Responsabile/addetto produzione</td><td class=\"FacetDataTD\">\n";
 ?>
@@ -1737,7 +1737,7 @@ if ($sel==0){
 </tr>
 <?php
 if ($form['order_type'] <> "AGR") { // input esclusi se NON produzione agricola
-  // Antonio Germani > Inizio LOTTO in entrata o creazione nuovo
+  // Aurora SRL > Inizio LOTTO in entrata o creazione nuovo
 
   if (intval($form['lot_or_serial']) == 1) { // se l'articolo prevede il lotto apro la gestione lotti nel form
     ?>

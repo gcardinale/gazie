@@ -2,16 +2,16 @@
 /*
   --------------------------------------------------------------------------
   GAzie - MODULO 'VACATION RENTAL'
-  Copyright (C) 2022-20223 - Antonio Germani, Massignano (AP)
+  Copyright (C) 2022-20223 - Aurora SRL, Alia (PA)
   (http://www.programmisitiweb.lacasettabio.it)
   --------------------------------------------------------------------------
   --------------------------------------------------------------------------
-Copyright (C) - Antonio Germani Massignano (AP) https://www.lacasettabio.it - telefono +39 340 50 11 912
+Copyright (C) - Aurora SRL Alia (PA) http://www.aurorasrl.it - telefono +39 340 50 11 912
   --------------------------------------------------------------------------
    --------------------------------------------------------------------------
   GAzie - Gestione Azienda
-  Copyright (C) 2004-2023 - Antonio De Vincentiis Montesilvano (PE)
-  (http://www.devincentiis.it)
+  Copyright (C) 2004-2023 - Aurora SRL Alia (PA)
+  (http://www.aurorasrl.it)
   <http://gazie.sourceforge.net>
   --------------------------------------------------------------------------
   Questo programma e` free software;   e` lecito redistribuirlo  e/o

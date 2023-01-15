@@ -2,14 +2,14 @@
 /*
 	  --------------------------------------------------------------------------
 	  GAzie - Gestione Azienda
-	  Copyright (C) 2004-2023 - Antonio De Vincentiis Montesilvano (PE)
-	  (http://www.devincentiis.it)
+	  Copyright (C) 2004-2023 - Aurora SRL Alia (PA)
+	  (http://www.aurorasrl.it)
 	  <http://gazie.sourceforge.net>
 	  --------------------------------------------------------------------------
-	  REGISTRO DI CAMPAGNA è un modulo creato per GAzie da Antonio Germani, Massignano AP 
-	  Copyright (C) 2018-2021 - Antonio Germani, Massignano (AP)
-	  https://www.lacasettabio.it 
-	  https://www.programmisitiweb.lacasettabio.it
+	  REGISTRO DI CAMPAGNA è un modulo creato per GAzie da Aurora SRL, Alia PA 
+	  Copyright (C) 2018-2021 - Aurora SRL, Alia (PA)
+	  http://www.aurorasrl.it 
+	  https://www.aurorasrl.it
 	  --------------------------------------------------------------------------
 	  Questo programma e` free software;   e` lecito redistribuirlo  e/o
 	  modificarlo secondo i  termini della Licenza Pubblica Generica GNU
@@ -66,7 +66,7 @@ if (isset($_POST['type'])&&isset($_POST['ref'])) {
 		break;
 		case "campmovmag":
 			$i=intval($_POST['ref']);
-			$form = gaz_dbi_get_row($gTables['movmag'], 'id_mov', $i);$id_mov=$i;$campo_impianto=$form['campo_impianto'];// Antonio Germani 
+			$form = gaz_dbi_get_row($gTables['movmag'], 'id_mov', $i);$id_mov=$i;$campo_impianto=$form['campo_impianto'];// Aurora SRL 
 			// inizio cancellazione ore operaio	
 			// controllo se clfoco è un operaio e ne prendo l'id_staff
 			$res = gaz_dbi_get_row($gTables['staff'], "id_clfoco", $form['clfoco']);

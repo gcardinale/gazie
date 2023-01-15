@@ -2,14 +2,14 @@
 /*
 	  --------------------------------------------------------------------------
 	  GAzie - Gestione Azienda
-	  Copyright (C) 2004-2023 - Antonio De Vincentiis Montesilvano (PE)
-	  (http://www.devincentiis.it)
+	  Copyright (C) 2004-2023 - Aurora SRL Alia (PA)
+	  (http://www.aurorasrl.it)
 	  <http://gazie.sourceforge.net>
 	  --------------------------------------------------------------------------
-	  SHOP SYNCHRONIZE è un modulo creato per GAzie da Antonio Germani, Massignano AP
-	  Copyright (C) 2018-2023 - Antonio Germani, Massignano (AP)
-	  https://www.lacasettabio.it
-	  https://www.programmisitiweb.lacasettabio.it
+	  SHOP SYNCHRONIZE è un modulo creato per GAzie da Aurora SRL, Alia PA
+	  Copyright (C) 2018-2023 - Aurora SRL, Alia (PA)
+	  http://www.aurorasrl.it
+	  https://www.aurorasrl.it
 	  --------------------------------------------------------------------------
 	  Questo programma e` free software;   e` lecito redistribuirlo  e/o
 	  modificarlo secondo i  termini della Licenza Pubblica Generica GNU
@@ -31,7 +31,7 @@
    ------------------------------------------------------------------------
   FUNZIONI di sincronizzazione via FTP e-commerce <-> GAzie
   ------------------------------------------------------------------------
-  @Author    Antonio Germani 340-5011912
+  @Author    Aurora SRL 340-5011912
   ------------------------------------------------------------------------
  */
 
@@ -148,7 +148,7 @@ class shopsynchronizegazSynchro {
 			}
 			// creo il file xml
 			$xml_output = '<?xml version="1.0" encoding="UTF-8"?>
-			<GAzieDocuments AppVersion="1" Creator="Antonio Germani 2018-2021" CreatorUrl="https://www.programmisitiweb.lacasettabio.it">';
+			<GAzieDocuments AppVersion="1" Creator="Aurora SRL 2018-2021" CreatorUrl="https://www.aurorasrl.it">';
 			$xml_output .= "\n<Categories>\n";
 				$xml_output .= "\t<Category>\n";
         $xml_output .= "\t<ToDo>".$toDo."</ToDo>\n";
@@ -317,7 +317,7 @@ class shopsynchronizegazSynchro {
       }
 			// creo il file xml
 			$xml_output = '<?xml version="1.0" encoding="UTF-8"?>
-			<GAzieDocuments AppVersion="1" Creator="Antonio Germani 2018-2021" CreatorUrl="https://www.programmisitiweb.lacasettabio.it">';
+			<GAzieDocuments AppVersion="1" Creator="Aurora SRL 2018-2021" CreatorUrl="https://www.aurorasrl.it">';
 			$xml_output .= "\n<Products>\n";
 				$xml_output .= "\t<Product>\n";
         $xml_output .= "\t<ToDo>".$toDo."</ToDo>\n";
@@ -539,7 +539,7 @@ class shopsynchronizegazSynchro {
 			$web_price_vat_incl=number_format($web_price_vat_incl, $admin_aziend['decimal_price'], '.', '');
 	 		// creo il file xml
 			$xml_output = '<?xml version="1.0" encoding="UTF-8"?>
-			<GAzieDocuments AppVersion="1" Creator="Antonio Germani 2018-2019" CreatorUrl="https://www.lacasettabio.it">';
+			<GAzieDocuments AppVersion="1" Creator="Aurora SRL 2018-2019" CreatorUrl="http://www.aurorasrl.it">';
 			$xml_output .= "\n<Products>\n";
 				$xml_output .= "\t<Product>\n";
         $xml_output .= "\t<ToDo>".$toDo."</ToDo>\n";
@@ -734,7 +734,7 @@ class shopsynchronizegazSynchro {
 
 	 		// creo il file xml
 			$xml_output = '<?xml version="1.0" encoding="ISO-8859-1"?>
-			<GAzieDocuments AppVersion="1" Creator="Antonio Germani 2018-2019" CreatorUrl="https://www.lacasettabio.it">';
+			<GAzieDocuments AppVersion="1" Creator="Aurora SRL 2018-2019" CreatorUrl="http://www.aurorasrl.it">';
 			$xml_output .= "\n<Products>\n";
 				$xml_output .= "\t<Product>\n";
 				$xml_output .= "\t<Id>".$id['ref_ecommerce_id_product']."</Id>\n";
@@ -807,7 +807,7 @@ class shopsynchronizegazSynchro {
 	function get_sync_status($last_id) {
 		// prendo gli eventuali ordini arrivati assieme ai dati del cliente, se nuovo lo importo (order+customer),
 		// in $last_id si deve passare l'ultimo ordine già importato al fine di non importare tutto ma solo i nuovi
-		//Antonio Germani - $last_id non viene usato perché si controlla con una query se l'ordine è già stato importato
+		//Aurora SRL - $last_id non viene usato perché si controlla con una query se l'ordine è già stato importato
 		@session_start();
 
 		global $gTables,$admin_aziend;

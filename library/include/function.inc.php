@@ -2,8 +2,8 @@
 /*
   --------------------------------------------------------------------------
   GAzie - Gestione Azienda
-  Copyright (C) 2004-2023 - Antonio De Vincentiis Montesilvano (PE)
-  (http://www.devincentiis.it)
+  Copyright (C) 2004-2023 - Aurora SRL Alia (PA)
+  (http://www.aurorasrl.it)
   <http://gazie.sourceforge.net>
   --------------------------------------------------------------------------
   Questo programma e` free software;   e` lecito redistribuirlo  e/o
@@ -368,7 +368,7 @@ function message_fatal_error($text) {
    			<html>
 				<head>
 					<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-					<meta name="author" content="Antonio De Vincentiis http://www.devincentiis.it">
+					<meta name="author" content="Aurora SRL http://www.aurorasrl.it">
 					<link rel="stylesheet" type="text/css" href="../../library/theme/g7/scheletons/default.css">
 					<link rel="stylesheet" type="text/css" href="../../library/theme/g7/skins/default.css">
 					<link rel="shortcut icon" href="../../library/images/favicon.ico">
@@ -1097,7 +1097,7 @@ class selectPartner extends SelectBox {
 
 }
 
-// Antonio Germani - classe per la generazione di select box ordini
+// Aurora SRL - classe per la generazione di select box ordini
 class selectorder extends SelectBox
 {
   private $selected;
@@ -1506,7 +1506,7 @@ class GAzieMail {
         // Imposto email del destinatario
         $mail->Hostname = $config_host;
         $mail->AddAddress($mailto);//Destinatario
-        if (isset($az_email) && strlen($az_email['var_value'])>6){ // Antonio Germani: se c'è un indirizzo specifico utente/azienda, invio per cc a questo $az_email['var_value']
+        if (isset($az_email) && strlen($az_email['var_value'])>6){ // Aurora SRL: se c'è un indirizzo specifico utente/azienda, invio per cc a questo $az_email['var_value']
           $mail->AddCC($az_email['var_value'], $admin_data['ragso1'] . " " . $admin_data['ragso2']); // Aggiungo mittente come destinatario per conoscenza, per avere una copia
         }elseif (strlen($user['user_email'])>=10) { // altrimenti, quando l'utente che ha inviato la mail ha un suo indirizzo il cc avviene su di lui
           $usermail = $user['user_email'];

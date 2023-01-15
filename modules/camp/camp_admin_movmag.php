@@ -2,8 +2,8 @@
 /*
 	  --------------------------------------------------------------------------
 	  GAzie - Gestione Azienda
-	  Copyright (C) 2004-2023 - Antonio De Vincentiis Montesilvano (PE)
-	  (http://www.devincentiis.it)
+	  Copyright (C) 2004-2023 - Aurora SRL Alia (PA)
+	  (http://www.aurorasrl.it)
 	  <http://gazie.sourceforge.net>
 	  --------------------------------------------------------------------------
 	  Questo programma e` free software;   e` lecito redistribuirlo  e/o
@@ -22,8 +22,8 @@
 	  Temple Place, Suite 330, Boston, MA 02111-1307 USA Stati Uniti.
 	  --------------------------------------------------------------------------
 
-	  Registro di Campagna è un modulo creato da Antonio Germani Massignano AP
-	  https://www.lacasettabio.it https://www.programmisitiweb.lacasettabio.it
+	  Registro di Campagna è un modulo creato da Aurora SRL Alia PA
+	  http://www.aurorasrl.it https://www.aurorasrl.it
 	  --------------------------------------------------------------------------
 */
 require ("../../library/include/datlib.inc.php");
@@ -58,7 +58,7 @@ if (!isset($_POST['ritorno'])) {
 }
 $form = array();
 
-// Antonio Germani questo serve per la ricerca avversità
+// Aurora SRL questo serve per la ricerca avversità
 if (isset($_POST['nome_avv'])) {
     $form['mov'] = $_POST['mov'];
     $form['nmov'] = $_POST['nmov'];
@@ -137,7 +137,7 @@ if (isset($_POST['erase2']) ) {
     $_POST['campo_impianto'] = "";
 	$_POST['id_orderman'] = "";
 }
-// Antonio Germani questo serve per la ricerca colture
+// Aurora SRL questo serve per la ricerca colture
 if (isset($_POST['nome_colt'])) {
     $form['nome_colt'] = $_POST['nome_colt'];
     $form['id_colture'] = intval($form['nome_colt']);
@@ -265,7 +265,7 @@ if (!isset($_POST['Update']) and isset($_GET['Update'])) { //se è il primo acce
     $form['identifier'][$form['mov']] = ($reslotmag)?$reslotmag['identifier']:'';
     $form['expiry'][$form['mov']] = ($reslotmag)?$reslotmag['expiry']:'';
 
-    // Antonio Germani - se è presente, recupero il file documento lotto
+    // Aurora SRL - se è presente, recupero il file documento lotto
     $form['filename'][$form['mov']] = "";
     if (file_exists(DATA_DIR.'files/' . $admin_aziend['company_id']) > 0) {
         // recupero il filename dal filesystem
@@ -298,7 +298,7 @@ if (!isset($_POST['Update']) and isset($_GET['Update'])) { //se è il primo acce
 
     $form['clfoco'][$form['mov']] = $result['clfoco'];
     $form['status'] = $result['status'];
-    $form['search_partner'] = ""; //Antonio Germani
+    $form['search_partner'] = ""; //Aurora SRL
     $form['search_item'] = "";
 
 
@@ -316,7 +316,7 @@ if (!isset($_POST['Update']) and isset($_GET['Update'])) { //se è il primo acce
 		$form['artico2'][$form['mov']] = (isset($_POST['artico2'.$form['mov']]))?$_POST['artico2'.$form['mov']]:'';
 	}
 	$fito=0;// per controllare se nei movimenti c'è almeno un fitofarmaco
-	if (isset($_POST['mov']) ) { // Antonio Germani - se è stato inserito un rigo faccio il parsing di tutti i righi presenti
+	if (isset($_POST['mov']) ) { // Aurora SRL - se è stato inserito un rigo faccio il parsing di tutti i righi presenti
 		for ($m = 0;$m <= $form['nmov'];++$m) {
 
 			$form['artico'][$m] = $_POST['artico' . $m];
@@ -568,12 +568,12 @@ if (!isset($_POST['Update']) and isset($_GET['Update'])) { //se è il primo acce
 		}
 	}
 
-    // Antonio Germani - se è stato inserita una coltura la inserisco anche se diversa da quella del campo di coltivazione
+    // Aurora SRL - se è stato inserita una coltura la inserisco anche se diversa da quella del campo di coltivazione
     if ($_POST['nome_colt'] > 0) {
         $form['nome_colt'] = $_POST['nome_colt'];
         $form['id_colture'] = intval($form['nome_colt']);
     }
-    // Antonio Germani - controllo se c'è una coltura deve esserci un campo di coltivazione
+    // Aurora SRL - controllo se c'è una coltura deve esserci un campo di coltivazione
     if ($form['campo_impianto1'] < 1 && $form['id_colture'] > 0) {
         $msg.= "35+";
     }
@@ -603,12 +603,12 @@ if (!isset($_POST['Update']) and isset($_GET['Update'])) { //se è il primo acce
         if ($utsdoc > $utsreg) {
             $msg.= "17+";
         }
-		// Antonio Germani controllo se in ricerca produzione è stato impostata la voce selezionandola dal menù a tendina
+		// Aurora SRL controllo se in ricerca produzione è stato impostata la voce selezionandola dal menù a tendina
 		if (strlen($_POST['id_orderman'])>0 && intval($form['id_orderman'])==0) {
 			$msg.= "30+"; // non esiste fra quelle create
       	}
 
-		// Antonio Germani creo la data di ATTUAZIONE DELL'OPERAZIONE selezionata che poi confronterò con quella di sospensione del campo
+		// Aurora SRL creo la data di ATTUAZIONE DELL'OPERAZIONE selezionata che poi confronterò con quella di sospensione del campo
         $dt = substr("0" . $form['giodoc'], -2) . "-" . substr("0" . $form['mesdoc'], -2) . "-" . $form['anndoc'];
         $dt = strtotime($dt);
 
@@ -639,7 +639,7 @@ if (!isset($_POST['Update']) and isset($_GET['Update'])) { //se è il primo acce
 					$msg.= "44+";
 				}
 			}
-			// Antonio Germani controllo che, se la causale movimento non opera, non ci sia un articolo con magazzino
+			// Aurora SRL controllo che, se la causale movimento non opera, non ci sia un articolo con magazzino
 			if (isset($itemart)){
 				$service = intval($itemart['good_or_service']);
 			}
@@ -672,7 +672,7 @@ if (!isset($_POST['Update']) and isset($_GET['Update'])) { //se è il primo acce
 			if (isset($_POST['Update'])) { // se è un update carico il movimento di magazzino presente nel database per fare i confronti
                  $check_movmag = gaz_dbi_get_row($gTables['movmag'], "id_mov", $_GET['id_mov']);
 			}
-            // Antonio Germani calcolo giacenza di magazzino, la metto in $print_magval e, se è uno scarico, controllo sufficiente giacenza
+            // Aurora SRL calcolo giacenza di magazzino, la metto in $print_magval e, se è uno scarico, controllo sufficiente giacenza
 
             if (isset($itemart) AND ($itemart['good_or_service'] == 0 or $itemart['good_or_service'] == 2)){ // se non è un servizio
                 // controllo se sono stati inseriti articoli merci uguali in più righe /perché non è possibile altrimenti non funzionano i controlli sulle quantità per lotto/
@@ -693,16 +693,16 @@ if (!isset($_POST['Update']) and isset($_GET['Update'])) { //se è il primo acce
 					}
                 }
                 if (isset ($form['operat']) AND $form['operat'] == - 1 and (floatval(str_replace(',', '', $print_magval)) - floatval(str_replace(',', '', $form['quanti'][$m])) < 0)) {
-                    //Antonio Germani quantità insufficiente
+                    //Aurora SRL quantità insufficiente
                     $msg.= "23+";
                 }
             }
-            // Antonio Germani > controllo che non sia caricato un articolo composito
+            // Aurora SRL > controllo che non sia caricato un articolo composito
             if (isset($itemart) AND $itemart['good_or_service'] == 2 && $form['operat'] == 1) {
                 $msg.= "42+"; // il carico di articolo composti si può fare solo dal modulo produzioni
 
             }
-            // Antonio Germani - se l'articolo ha lotti in uscita controllo se il lotto selezionato ha quantità sufficiente
+            // Aurora SRL - se l'articolo ha lotti in uscita controllo se il lotto selezionato ha quantità sufficiente
             if (isset($itemart) AND ($itemart['good_or_service'] == 0) && ($itemart['lot_or_serial'] == 1) && ($form['operat'] == - 1)) { // se è merce e ha lotti
                 $lotqty = $lm->getLotQty($form['id_lotmag'][$m]);
 				if ($toDo=="update" && intval ($check_movmag['id_lotmag']) == intval($form['id_lotmag'][$m])){
@@ -722,7 +722,7 @@ if (!isset($_POST['Update']) and isset($_GET['Update'])) { //se è il primo acce
                 }
             }
 
-            //Antonio Germani controllo se il prodotto è presente nel database fitofarmaci
+            //Aurora SRL controllo se il prodotto è presente nel database fitofarmaci
 			if (isset($itemart['id_reg'])){
 				$query = "SELECT " . 'SCADENZA_AUTORIZZAZIONE' . " FROM " . $gTables['camp_fitofarmaci'] . " WHERE NUMERO_REGISTRAZIONE ='" . $itemart['id_reg'] . "'";
 				$result = gaz_dbi_query($query);
@@ -739,7 +739,7 @@ if (!isset($_POST['Update']) and isset($_GET['Update'])) { //se è il primo acce
                     $msg.= "28+";;
                 }
             }
-			// Antonio Germani dall'articolo prendo la dose massima, il rame metallo, e NPK
+			// Aurora SRL dall'articolo prendo la dose massima, il rame metallo, e NPK
 			$item = gaz_dbi_get_row($gTables['artico'], "codice", $form['artico'][$m]);
 			$dose_artico = 0;
 			$rame_metallo = 0;
@@ -775,7 +775,7 @@ if (!isset($_POST['Update']) and isset($_GET['Update'])) { //se è il primo acce
 							$instantwarning[]="Dose generica superata nel prodotto ". $form['artico'][$m] .". La quantità massima utilizzabile è ". gaz_format_quantity($dose_artico * $form['dim_campo'.$n], 1, $admin_aziend['decimal_quantity']) .".";
 						}
 					}
-					// Antonio Germani Calcolo quanto rame metallo e Azoto N è stato usato nell'anno di esecuzione di questo movimento
+					// Aurora SRL Calcolo quanto rame metallo e Azoto N è stato usato nell'anno di esecuzione di questo movimento
 					If ($form['campo_impianto'.$n] > 0) { // se il prodotto va in un campo di coltivazione
 						$rame_met_annuo=0;$N_annuo=0;
 						if ($rame_metallo > 0 OR $perc_N > 0) { //se questo prodotto contiene rame metallo o azoto
@@ -795,7 +795,7 @@ if (!isset($_POST['Update']) and isset($_GET['Update'])) { //se è il primo acce
 						}
 					}
 
-					// Antonio Germani controllo se con questo movimento non si supera la doce massima annua di 6Kg ad ha di rame metallo
+					// Aurora SRL controllo se con questo movimento non si supera la doce massima annua di 6Kg ad ha di rame metallo
 					// e il limite di Azoto annuo impostato per ogni singolo campo
 
 					// prendo il limite di azoto per anno per il campo da controllare
@@ -881,7 +881,7 @@ if (!isset($_POST['Update']) and isset($_GET['Update'])) { //se è il primo acce
 						}
 
 						// inframezzo il salvataggio del movmag con i lotti perché altrimenti, se è un movimento in entrata, non ho id_lotmag da salvare in movmag
-						//Antonio Germani - >>> inizio salvo lotti -se ci sono e se il prodotto li richiede-
+						//Aurora SRL - >>> inizio salvo lotti -se ci sono e se il prodotto li richiede-
 						if ($form['operat'] == 1) { // se il movimento è in entrata -carico-
 							$idlotcontroll = gaz_dbi_get_row($gTables['lotmag'], "id", $form['id_lotmag'][$form['mov']]); // in $idlotcontroll['id_movmag'] ho l'id del movimento madre del lotto mi
 							if ($form['lot_or_serial'][$form['mov']] > 0 && intval($form['id_lotmag'][$form['mov']]) == 0) { // se l'articolo prevede un lotto e non ho id_lotmag, vuol dire che non ho scelto il lotto fra gli esistenti e quindi devo creare un  nuovo lotto
@@ -913,7 +913,7 @@ if (!isset($_POST['Update']) and isset($_GET['Update'])) { //se è il primo acce
 									}
 								}
 							}
-							// Antonio Germani - inizio salvo documento/certificato
+							// Aurora SRL - inizio salvo documento/certificato
 							if (substr($form['filename'][$form['mov']], 0, 7) <> 'lotmag_') { // se è stato cambiato il file, cioè il nome non inizia con lotmag e, quindi, anche se è un nuovo insert
 								if (!empty($form['filename'][$form['mov']])) { // e se ha un nome impostato nel form
 									$tmp_file = DATA_DIR."files/tmp/" . $admin_aziend['adminid'] . '_' . $admin_aziend['company_id'] . '_' . $form['mov'] . '_' . $form['filename'][$form['mov']];
@@ -928,18 +928,18 @@ if (!isset($_POST['Update']) and isset($_GET['Update'])) { //se è il primo acce
 						$query = "UPDATE " . $gTables['movmag'] . " SET type_mov = '" . 1 . "', id_rif = '".$id_rif."', tipdoc = '".$form['tipdoc']."' , campo_impianto = '" . $form['campo_impianto'.$n] . "' , id_avversita = '" . $form['id_avversita'][$form['mov']] . "' , id_colture = '" . $form['id_colture'] . "' , id_orderman = '" . $form['id_orderman'] . "' , id_lotmag = '" . $form['id_lotmag'][$form['mov']] . "' WHERE id_mov ='" . $id_movmag . "'";
 						gaz_dbi_query($query);
 
-						// Antonio Germani - aggiorno la tabella campi se c'è un campo inserito (cioè >0) e se l'operazione è uno scarico (cioè operat<0) e se la data di fine sospensione già presente nel campo è inferiore alla data di sospensione del prodotto appena usato (cioè $fine_sosp<$dt)
+						// Aurora SRL - aggiorno la tabella campi se c'è un campo inserito (cioè >0) e se l'operazione è uno scarico (cioè operat<0) e se la data di fine sospensione già presente nel campo è inferiore alla data di sospensione del prodotto appena usato (cioè $fine_sosp<$dt)
 
-						//Antonio Germani per prima cosa determino il codice del movimento che eventualmente andrà nella tabella del campo di coltivazione
+						//Aurora SRL per prima cosa determino il codice del movimento che eventualmente andrà nella tabella del campo di coltivazione
 						if (!isset($_POST['Update'])) {
-							// Antonio Germani se è un iserimento vedo qual'è stato il movimento del magazzino
+							// Aurora SRL se è un iserimento vedo qual'è stato il movimento del magazzino
 							$id_mov = gaz_dbi_last_id();
 						} else { // se non è un nuovo inserimento prendo il codice del movimento di magazzino selezionato
 							$id_mov = $form['id_mov'];
 						}
 						// adesso vedo se si deve aggiornare il campo di coltivazione
 						if ($form['campo_impianto'.$n] > 0 && $form['operat'] < 0 && $itemart['good_or_service']!==1) {
-							/* Antonio Germani creo la data del trattamento selezionato a cui poi aggiungerò i giorni di sospensione. */
+							/* Aurora SRL creo la data del trattamento selezionato a cui poi aggiungerò i giorni di sospensione. */
 							$dt = substr("0" . $form['giodoc'], -2) . "-" . substr("0" . $form['mesdoc'], -2) . "-" . $form['anndoc'];
 							$dt = strtotime($dt);
 							// se è presente prendo il tempo di sospensione specifico
@@ -953,7 +953,7 @@ if (!isset($_POST['Update']) and isset($_GET['Update'])) { //se è il primo acce
 							}
 							if (intval($temp_sosp)>0){  // se c'è un tempo di sospensione
 								$dt = $dt + (86400 * intval($temp_sosp)); //aggiiungo al giorno di attuazione i giorni di sospensione (Un giorno = 86400 timestamp)
-								// Antonio Germani controllo se il tempo di sospensione del campo di coltivazione è inferiore a quello che si crea con questo trattamento. Se lo è aggiorno il database campi nel campo di coltivazione selezionato
+								// Aurora SRL controllo se il tempo di sospensione del campo di coltivazione è inferiore a quello che si crea con questo trattamento. Se lo è aggiorno il database campi nel campo di coltivazione selezionato
 
 								if (isset($form['fine_sosp'.$n]) && $form['fine_sosp'.$n] < $dt) {
 									$dt = date('Y/m/d', $dt);
@@ -1179,7 +1179,7 @@ if (!isset($_POST['Update']) and isset($_GET['Update'])) { //se è il primo acce
 	}
 }
 
-// Antonio Germani questo serve per aggiungere un movimento
+// Aurora SRL questo serve per aggiungere un movimento
 if (isset($_POST['Add_mov'])) {
     $form['nmov'] = $_POST['nmov'];
     for ($m = 0;$m <= $form['nmov'];++$m) {
@@ -1241,7 +1241,7 @@ if (isset($_POST['Add_mov'])) {
 	$form['ins_op'][$form['nmov']] = "";
 }
 
-// Antonio Germani questo serve per togliere un movimento
+// Aurora SRL questo serve per togliere un movimento
 if (isset($_POST['Del_mov'])) {
     $form['artico'][$form['nmov']] = "";
 	$form['conferma'][$form['nmov']] = "";
@@ -1270,7 +1270,7 @@ if (isset($_POST['Del_mov'])) {
     }
 }
 
-if (!empty($_FILES['docfile_' . $form['mov']]['name'])) { // Antonio Germani - se c'è un nome in $_FILES
+if (!empty($_FILES['docfile_' . $form['mov']]['name'])) { // Aurora SRL - se c'è un nome in $_FILES
     $prefix = $admin_aziend['adminid'] . '_' . $admin_aziend['company_id'] . '_' . $form['mov'];
     foreach (glob(DATA_DIR."files/tmp/" . $prefix . "_*.*") as $fn) { // prima cancello eventuali precedenti file temporanei
         unlink($fn);
@@ -1363,7 +1363,7 @@ if (isset($_POST['cancel'])) {// se è stato premuto annulla
     $form['id_orderman'] = 0;
     $fornitore = "";
 }
-// Antonio Germani controllo e avviso se è stata cambiata la coltura nel campo di coltivazione
+// Aurora SRL controllo e avviso se è stata cambiata la coltura nel campo di coltivazione
 $conf_cambio_colt="";
 if (isset($_POST['nome_colt'])) {
 	if ($form['campo_impianto1'] > 0) { // se c'è un campo di coltivazione
@@ -1390,11 +1390,11 @@ require ("./lang." . $admin_aziend['lang'] . ".php");
 
 <?php
 
-// Antonio Germani segnalo i warning immediati
+// Aurora SRL segnalo i warning immediati
 if (count($instantwarning)>0) {
 	foreach ($instantwarning as $warn){
 	?>
-	<div class="alert alert-warning alert-dismissible" id="warning"><!-- Antonio Germani Questa è l'ancora dello scroll per i warning-->
+	<div class="alert alert-warning alert-dismissible" id="warning"><!-- Aurora SRL Questa è l'ancora dello scroll per i warning-->
 		<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
 		<strong>Warning!</strong> <?php echo $warn; ?>
 	</div>
@@ -1413,7 +1413,7 @@ if ($avv_conf==3 AND $form['confermapat'][$form['adminid']]!=="Confermo deroga" 
 ?>
 
 <script>
-<!-- Antonio Germani inizio script autocompletamento per fasi fenologiche	-->
+<!-- Aurora SRL inizio script autocompletamento per fasi fenologiche	-->
 	$(document).ready(function() {
 	$("input#autocomplete5").autocomplete({
 		source: [<?php
@@ -1440,7 +1440,7 @@ echo $stringa;
 	});
 <!-- fine autocompletamento -->
 
-<!-- Antonio Germani inizio script autocompletamento dalla tabella mysql camp_colture	-->
+<!-- Aurora SRL inizio script autocompletamento dalla tabella mysql camp_colture	-->
 	$(document).ready(function() {
 	$("input#autocomplete4").autocomplete({
 		source: [<?php
@@ -1473,7 +1473,7 @@ echo $stringa;
 	   }
 <!-- fine popup orderman -->
 
-<!-- Antonio Germani inizio script autocompletamento dalla tabella mysql camp_avversita	-->
+<!-- Aurora SRL inizio script autocompletamento dalla tabella mysql camp_avversita	-->
 	$(document).ready(function() {
 	$("input#autocomplete3").autocomplete({
 		source: [<?php
@@ -1505,7 +1505,7 @@ echo $stringa;
 	});
 <!-- fine datepicker -->
 
-<!-- Antonio Germani inizio script autocompletamento dalla tabella mysql artico	-->
+<!-- Aurora SRL inizio script autocompletamento dalla tabella mysql artico	-->
 	$(document).ready(function(){
 	//Autocomplete search using PHP, MySQLi, Ajax and jQuery
 	//generate suggestion on keyup
@@ -1592,7 +1592,7 @@ if (intval($form['nome_colt']) == 0) {
 				}
 				?>
 				<div class="row bg-info" id="error"><td colspan="3" class="FacetDataTDred">
-					 <!-- Antonio Germani Questa è l'ancora dello scroll per gli error-->
+					 <!-- Aurora SRL Questa è l'ancora dello scroll per gli error-->
 					<div class="row bg-danger">
 						<p>
 						<?php echo $message; ?>
@@ -1839,7 +1839,7 @@ if (intval($form['nome_colt']) == 0) {
 			// >>>>>>>>>> Inizio ciclo righi mov   <<<<<<<<<<<<<<<<<
 			for ($form['mov'] = 0;$form['mov'] <= $form['nmov'];++$form['mov']) {
 				if (strlen($form['artico'][$form['mov']])>0 OR strlen($form['ins_op'][$form['mov']])>0){ // se c'è un codice articolo o è selezionato operaio
-					$anchor = $form['mov']; // Antonio Germani - prendo la riga per dare l'id all'anchor ancora dello scroll
+					$anchor = $form['mov']; // Aurora SRL - prendo la riga per dare l'id all'anchor ancora dello scroll
 				}
 				$importo_rigo = CalcolaImportoRigo($form['quanti'][$form['mov']], $form['prezzo'][$form['mov']], $form['scorig'][$form['mov']]);
 				$importo_rigo = $importo_rigo+CalcolaImportoRigo($form['quanti2'][$form['mov']], $form['prezzo2'][$form['mov']], $form['scorig2'][$form['mov']]);
@@ -2001,8 +2001,8 @@ if (intval($form['nome_colt']) == 0) {
 										}
 
 									}
-								if ($service == 0 or $service == 2) { //Antonio Germani se è un articolo con magazzino
-									// Antonio Germani calcolo giacenza di magazzino e la metto in $print_magval
+								if ($service == 0 or $service == 2) { //Aurora SRL se è un articolo con magazzino
+									// Aurora SRL calcolo giacenza di magazzino e la metto in $print_magval
 									if (isset($itemart['codice'])){
 										$mv = $gForm->getStockValue(false, $itemart['codice']);
 										$magval = array_pop($mv);
@@ -2051,7 +2051,7 @@ if (intval($form['nome_colt']) == 0) {
 							if (($service == 0 or $service == 2) && (isset ($_POST['ins_op'.$form['mov']]) && $_POST['ins_op'.$form['mov']]!=="ins_op")) { // se è un articolo con magazzino e non è operaio o lavorazione agricola
 
 								echo " - " . $script_transl[22] . " " . gaz_format_quantity($print_magval, 1, $admin_aziend['decimal_quantity']) . " " . $print_unimis . "&nbsp;&nbsp;";
-								// Antonio Germani se sottoscorta si attiva il pulsante di allerta e riordino. Al click si apre il popup con l'ordine compilato. >>> NB: al ritorno dall'ordine e dopo un submit, c'è un problema DA RISOLVERE: si apre una nuova finestra. <<< preferisco questo problema a quello che c'era prima, cioè si apriva la pagina dell'ordine annullando quanto già inserito nei movimenti.
+								// Aurora SRL se sottoscorta si attiva il pulsante di allerta e riordino. Al click si apre il popup con l'ordine compilato. >>> NB: al ritorno dall'ordine e dopo un submit, c'è un problema DA RISOLVERE: si apre una nuova finestra. <<< preferisco questo problema a quello che c'era prima, cioè si apriva la pagina dell'ordine annullando quanto già inserito nei movimenti.
 								if ($print_magval < $scorta and $service == 0 and $scorta > 0) {
 									echo "<button type=\"submit\" name=\"acquis\"  class=\"btn btn-default btn-lg\" title=\"Sottoscorta, riordinare\" onclick=\"myform.target='POPUPW'; POPUPW = window.open(
 									  'about:blank','POPUPW','width=800,height=400');\" style=\"background-color:red\"><span class=\"glyphicon glyphicon-alert\" aria-hidden=\"true\"></span></button>";
@@ -2066,7 +2066,7 @@ if (intval($form['nome_colt']) == 0) {
 					</div>
 				</div><!-- chiude row  -->
 				<?php
-				if ($service == 0 OR $service == 2) { //Antonio Germani se è un articolo con magazzino
+				if ($service == 0 OR $service == 2) { //Aurora SRL se è un articolo con magazzino
 					if (($form['lot_or_serial'][$form['mov']] > 0) && ($form['operat'] == - 1)) {
 						?>
 						<div class="row bg-info"><!-- inizio gestione form  LOTTI in uscita  -->
@@ -2088,7 +2088,7 @@ if (intval($form['nome_colt']) == 0) {
 										<?php
 									}
 
-									// Antonio Germani - calcolo delle giacenze per ogni singolo lotto in $count['identifier']
+									// Aurora SRL - calcolo delle giacenze per ogni singolo lotto in $count['identifier']
 									$count=array();
 									foreach ($lm->available as $v_lm) {
 										$key=$v_lm['identifier']; // chiave per il conteggio dei totali raggruppati per lotto
@@ -2145,7 +2145,7 @@ if (intval($form['nome_colt']) == 0) {
 											?>
 											<input type="hidden" name="id_lotmag<?php echo $form['mov']; ?>" value="<?php echo $form['id_lotmag'][$form['mov']]; ?> ">
 
-											<!-- Antonio Germani - Cambio lotto solo se c'è una sola riga di movimento altrimenti si rischia un errore inserendo due volte lo stesso lotto -->
+											<!-- Aurora SRL - Cambio lotto solo se c'è una sola riga di movimento altrimenti si rischia un errore inserendo due volte lo stesso lotto -->
 											<div id="lm_dialog<?php echo $form['mov']; ?>" class="collapse" >
 												<div class="form-group">
 													<?php
@@ -2212,7 +2212,7 @@ if (intval($form['nome_colt']) == 0) {
 									// se questo è il movimento che ha generato il lotto in lotmag (movimento madre), allora escludo la scelta fra quelli esistenti, così si ha la possibilità di modificare il lotto su lotmag
 									$idlotcontroll = gaz_dbi_get_row($gTables['lotmag'], "id", $form['id_lotmag'][$form['mov']]);
 									if ((intval($form['id_mov']) == 0) or (intval($form['id_mov']) <> intval($idlotcontroll['id_movmag']))) {
-										/*Antonio Germani scelta lotto fra quelli esistenti  */
+										/*Aurora SRL scelta lotto fra quelli esistenti  */
 										$query = "SELECT " . '*' . " FROM " . $gTables['lotmag'] . " WHERE codart ='" . $form['artico'][$form['mov']] . "'";
 										$result = gaz_dbi_query($query);
 										if ($result->num_rows > 0) { // se ci sono lotti attivo la selezione
@@ -2278,7 +2278,7 @@ if (intval($form['nome_colt']) == 0) {
 
 					<div class="row ">
 						<?php
-						/*Antonio Germani se è Operaio */
+						/*Aurora SRL se è Operaio */
 						if ($form['ins_op'][$form['mov']]!=="") {
 							?>
 							<div class="col-md-12">
@@ -2374,7 +2374,7 @@ if (intval($form['nome_colt']) == 0) {
 				$scorta = "";
 				$dose = ""; // le azzero perché altrimenti me le ritrovo nell'eventuale movimento/riga successivo
 
-				/* Antonio Germani  prezzo e sconto del rigo movimento */
+				/* Aurora SRL  prezzo e sconto del rigo movimento */
 				$importo_totale = ($form['prezzo'][$form['mov']] * floatval(preg_replace("/\,/", '.', $form['quanti'][$form['mov']]))) - ((($form['prezzo'][$form['mov']] * floatval(preg_replace("/\,/", '.', $form['quanti'][$form['mov']]))) * $form['scorig'][$form['mov']]) / 100);
 				?>
 				<div class="row" ><!-- COSTO MOVIMENTO  -->
@@ -2400,7 +2400,7 @@ if (intval($form['nome_colt']) == 0) {
 							echo "Movimento: ",$form['mov'] + 2;
 						}
 						?>
-						<!--<a name="<?php echo $form['mov']; ?>"></a>  Antonio Germani Questa è l'ancora dello scroll per l'ultimo movimento -->
+						<!--<a name="<?php echo $form['mov']; ?>"></a>  Aurora SRL Questa è l'ancora dello scroll per l'ultimo movimento -->
 					</div>
 				</div><!-- chiude row  -->
 				<?php
@@ -2539,7 +2539,7 @@ if (intval($form['nome_colt']) == 0) {
 }
 </style>
 <?php
-// Antonio Germani questo serve per fare lo scroll all'ultimo movimento inserito o alla segnalazione errore
+// Aurora SRL questo serve per fare lo scroll all'ultimo movimento inserito o alla segnalazione errore
 if (count($instantwarning)>0){
 	$anchor="warning";
 } elseif (strlen($message)>0){

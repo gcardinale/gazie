@@ -2,14 +2,14 @@
 /*
 	  --------------------------------------------------------------------------
 	  GAzie - Gestione Azienda
-	  Copyright (C) 2004-2023 - Antonio De Vincentiis Montesilvano (PE)
-	  (http://www.devincentiis.it)
+	  Copyright (C) 2004-2023 - Aurora SRL Alia (PA)
+	  (http://www.aurorasrl.it)
 	  <http://gazie.sourceforge.net>
 	  --------------------------------------------------------------------------
-	  REGISTRO DI CAMPAGNA è un modulo creato per GAzie da Antonio Germani, Massignano AP
-	  Copyright (C) 2018-2021 - Antonio Germani, Massignano (AP)
-	  https://www.lacasettabio.it
-	  https://www.programmisitiweb.lacasettabio.it
+	  REGISTRO DI CAMPAGNA è un modulo creato per GAzie da Aurora SRL, Alia PA
+	  Copyright (C) 2018-2021 - Aurora SRL, Alia (PA)
+	  http://www.aurorasrl.it
+	  https://www.aurorasrl.it
 	  --------------------------------------------------------------------------
 	  Questo programma e` free software;   e` lecito redistribuirlo  e/o
 	  modificarlo secondo i  termini della Licenza Pubblica Generica GNU
@@ -44,7 +44,7 @@ function getMovements($date_ini,$date_fin)
     {
         global $gTables,$admin_aziend;
         $m=array();
-        $where="datdoc BETWEEN $date_ini AND $date_fin"; // Antonio Germani prendo la data di attuazione
+        $where="datdoc BETWEEN $date_ini AND $date_fin"; // Aurora SRL prendo la data di attuazione
         $what=$gTables['movmag'].".*, ".
               $gTables['caumag'].".codice, ".$gTables['caumag'].".descri, ".
               $gTables['artico'].".codice, ".$gTables['artico'].".descri AS desart, ".$gTables['artico'].".perc_K, ".$gTables['artico'].".perc_P, ".$gTables['artico'].".perc_N, ".$gTables['artico'].".unimis, ".$gTables['artico'].".scorta, ".$gTables['artico'].".catmer, ".$gTables['artico'].".rame_metallico ";

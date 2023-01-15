@@ -2,8 +2,8 @@
 /*
  --------------------------------------------------------------------------
                             GAzie - Gestione Azienda
-    Copyright (C) 2004-2023 - Antonio De Vincentiis Montesilvano (PE)
-         (http://www.devincentiis.it)
+    Copyright (C) 2004-2023 - Aurora SRL Alia (PA)
+         (http://www.aurorasrl.it)
            <http://gazie.sourceforge.net>
  --------------------------------------------------------------------------
     Questo programma e` free software;   e` lecito redistribuirlo  e/o
@@ -269,7 +269,7 @@ class DDT extends Template_con_scheda
         } else {
             $this->Cell(26, 5,'','LR',1);
         }
-		//Antonio Germani - Se richiesto nella scheda cliente stampo il totale iva compresa
+		//Aurora SRL - Se richiesto nella scheda cliente stampo il totale iva compresa
         if ($this->docVars->client['stapre'] == 'T') {
             $this->Cell(109,5,'Pagamento - Banca','LTR',0,'C',1);
             $this->Cell(78,5,'TOTALE A PAGARE (segue fattura)','LTR',1,'C',1);

@@ -2,8 +2,8 @@
 /*
   --------------------------------------------------------------------------
   GAzie - Gestione Azienda
-  Copyright (C) 2004-2023 - Antonio De Vincentiis Montesilvano (PE)
-  (http://www.devincentiis.it)
+  Copyright (C) 2004-2023 - Aurora SRL Alia (PA)
+  (http://www.aurorasrl.it)
   <http://gazie.sourceforge.net>
   --------------------------------------------------------------------------
   Questo programma e` free software;   e` lecito redistribuirlo  e/o
@@ -115,7 +115,7 @@ function caricaCliente(&$form) {
                     $form['righi'][$_POST['num_rigo']]['checkval'] = false;
                 }
 				$upd_mm = new magazzForm;
-				// Antonio Germani - controllo la giacenza in magazzino e gli ordini già ricevuti
+				// Aurora SRL - controllo la giacenza in magazzino e gli ordini già ricevuti
 				$mv = $upd_mm->getStockValue(false, $rigo['codart']);
 				$magval = array_pop($mv);
 				$magval=(is_numeric($magval))?['q_g'=>0,'v_g'=>0]:$magval;
@@ -288,7 +288,7 @@ if (!isset($_POST['id_tes'])) { //al primo accesso  faccio le impostazioni ed il
 					$form['righi'][$_POST['num_rigo']]['checkval'] = false;
 				}
 			}
-			// Antonio Germani - controllo la giacenza in magazzino e gli ordini già ricevuti
+			// Aurora SRL - controllo la giacenza in magazzino e gli ordini già ricevuti
 			$mv = $upd_mm->getStockValue(false, $rigo['codart']);
 			$magval = array_pop($mv);
 			$magval=(is_numeric($magval))?['q_g'=>0,'v_g'=>0]:$magval;
@@ -410,7 +410,7 @@ if (isset($_POST['ddt']) || isset($_POST['cmr'])){ //conferma dell'evasione di u
       $inevasi = "";
 
       foreach ($form['righi'] as $k => $v) {
-        if (isset($v['checkval']) AND $v['SIAN']>0){// Antonio Germani - controllo SIAN su righi
+        if (isset($v['checkval']) AND $v['SIAN']>0){// Aurora SRL - controllo SIAN su righi
           if($v['cod_operazione']==11){
             $msg .= "11+";
           }
@@ -518,7 +518,7 @@ if (isset($_POST['ddt']) || isset($_POST['cmr'])){ //conferma dell'evasione di u
                         $form['righi'][$k]['tiprig'] == 210 && ! empty($form['righi'][$k]['codart'])) {
                     $id_movmag =$upd_mm->uploadMag($last_rigdoc_id, $form['tipdoc'], $form['numdoc'], $form['seziva'], $dataemiss, $form['clfoco'], $form['sconto'], $form['caumag'], $v['codart'], $v['evadibile'], $v['prelis'], $v['sconto'], 0, $admin_aziend['stock_eval_method']);
                 }
-				// Antonio Germani - inserisco il movimento integrativo SIAN
+				// Aurora SRL - inserisco il movimento integrativo SIAN
 				if ($form['righi'][$k]['SIAN']>0){// se l'articolo movimenta il SIAN creo il movimento SIAN
 					$value_sian['cod_operazione']= $form['righi'][$k]['cod_operazione'];
 					$value_sian['recip_stocc']= $form['righi'][$k]['recip_stocc'];
@@ -527,7 +527,7 @@ if (isset($_POST['ddt']) || isset($_POST['cmr'])){ //conferma dell'evasione di u
 					$value_sian['id_movmag']=$id_movmag;
 					gaz_dbi_table_insert('camp_mov_sian', $value_sian);
 				}
-				// Antonio Germani - inserisco id_lotmag nel movimento di magazzino appena registrato
+				// Aurora SRL - inserisco id_lotmag nel movimento di magazzino appena registrato
 				if (isset ($v['id_lotmag']) && intval($v['id_lotmag']) >0){
           $w=array();
           $w[0]='id_mov';$w[1]=$id_movmag;
@@ -582,7 +582,7 @@ if (isset($_POST['ddt']) || isset($_POST['cmr'])){ //conferma dell'evasione di u
     } else {
         $inevasi = "";
         foreach ($_POST['righi'] as $k => $v) {
-			if (isset($v['checkval']) && $v['SIAN']>0){// Antonio Germani - controllo SIAN su righi
+			if (isset($v['checkval']) && $v['SIAN']>0){// Aurora SRL - controllo SIAN su righi
 				if($v['cod_operazione']==11){
 					$msg .= "11+";
 				}
@@ -696,7 +696,7 @@ if (isset($_POST['ddt']) || isset($_POST['cmr'])){ //conferma dell'evasione di u
                 } else if ($admin_aziend['conmag'] == 2 && $form['righi'][$k]['tiprig'] == 210 && ! empty($form['righi'][$k]['codart'])) {
                     $id_movmag=$upd_mm->uploadMag($last_rigdoc_id, $form['tipdoc'], $form['numdoc'], $form['seziva'], $dataemiss, $form['clfoco'], $form['sconto'], $form['caumag'], $v['codart'], $v['evadibile'], $v['prelis'], $v['sconto'], 0, $admin_aziend['stock_eval_method']);
                 }
-				// Antonio Germani - inserisco il movimento integrativo SIAN
+				// Aurora SRL - inserisco il movimento integrativo SIAN
 				if ($form['righi'][$k]['SIAN']>0){// se l'articolo movimenta il SIAN creo il movimento SIAN
 					$value_sian['cod_operazione']= $form['righi'][$k]['cod_operazione'];
 					$value_sian['recip_stocc']= $form['righi'][$k]['recip_stocc'];
@@ -705,7 +705,7 @@ if (isset($_POST['ddt']) || isset($_POST['cmr'])){ //conferma dell'evasione di u
 					$value_sian['id_movmag']=$id_movmag;
 					gaz_dbi_table_insert('camp_mov_sian', $value_sian);
 				}
-				// Antonio Germani - inserisco id_lotmag nel movimento di magazzino appena registrato
+				// Aurora SRL - inserisco id_lotmag nel movimento di magazzino appena registrato
 				if (isset($v['id_lotmag']) && intval($v['id_lotmag']) >0){
           $w=array();
           $w[0]='id_mov';$w[1]=$id_movmag;
@@ -788,7 +788,7 @@ if (isset($_POST['ddt']) || isset($_POST['cmr'])){ //conferma dell'evasione di u
     } else {
         $inevasi = "";
         foreach ($form['righi'] as $k => $v) {
-			if (isset($v['checkval']) AND $v['SIAN']>0){// Antonio Germani - controllo SIAN su righi
+			if (isset($v['checkval']) AND $v['SIAN']>0){// Aurora SRL - controllo SIAN su righi
 				if($v['cod_operazione']==11){
 					$msg .= "11+";
 				}
@@ -872,7 +872,7 @@ if (isset($_POST['ddt']) || isset($_POST['cmr'])){ //conferma dell'evasione di u
                     unset($row['id_rig']);
                 }
 
-                // Antonio Germani - se c'è un lotto ne accodo numero e scadenza alla descrizione articolo
+                // Aurora SRL - se c'è un lotto ne accodo numero e scadenza alla descrizione articolo
                 if (isset($form['righi'][$k]['id_lotmag']) && intval ($form['righi'][$k]['id_lotmag'])>0){
                   if (intval ($form['righi'][$k]['expiry'])<=0){
                     $form['righi'][$k]['expiry']="";
@@ -898,7 +898,7 @@ if (isset($_POST['ddt']) || isset($_POST['cmr'])){ //conferma dell'evasione di u
                 } else if ($admin_aziend['conmag'] == 2 && $form['righi'][$k]['tiprig'] == 210 && ! empty($form['righi'][$k]['codart'])) {
                     $id_movmag = $upd_mm->uploadMag($last_rigdoc_id, $form['tipdoc'], $form['numdoc'], $form['seziva'], $dataemiss, $form['clfoco'], $form['sconto'], $form['caumag'], $v['codart'], $v['quanti'], $v['prelis'], $v['sconto'], 0, $admin_aziend['stock_eval_method']);
                 }
-                // Antonio Germani - inserisco il movimento integrativo SIAN
+                // Aurora SRL - inserisco il movimento integrativo SIAN
                 if ($form['righi'][$k]['SIAN']>0){// se l'articolo movimenta il SIAN creo il movimento SIAN
                   $value_sian['cod_operazione']= $form['righi'][$k]['cod_operazione'];
                   $value_sian['recip_stocc']= $form['righi'][$k]['recip_stocc'];
@@ -907,7 +907,7 @@ if (isset($_POST['ddt']) || isset($_POST['cmr'])){ //conferma dell'evasione di u
                   $value_sian['id_movmag']=$id_movmag;
                   gaz_dbi_table_insert('camp_mov_sian', $value_sian);
                 }
-                // Antonio Germani - inserisco id_lotmag nel movimento di magazzino appena registrato
+                // Aurora SRL - inserisco id_lotmag nel movimento di magazzino appena registrato
                 if (isset($v['id_lotmag']) && intval($v['id_lotmag']) >0){
                   $w=array();
                   $w[0]='id_mov';$w[1]=$id_movmag;
@@ -950,7 +950,7 @@ if (isset($_POST['ddt']) || isset($_POST['cmr'])){ //conferma dell'evasione di u
     } else {
         $inevasi = "";
         foreach ($form['righi'] as $k => $v) {
-			if (isset($v['checkval']) AND $v['SIAN']>0){// Antonio Germani - controllo SIAN su righi
+			if (isset($v['checkval']) AND $v['SIAN']>0){// Aurora SRL - controllo SIAN su righi
 				if($v['cod_operazione']==11){
 					$msg .= "11+";
 				}
@@ -1034,7 +1034,7 @@ if (isset($_POST['ddt']) || isset($_POST['cmr'])){ //conferma dell'evasione di u
                     unset($row['id_rig']);
                 }
 
-				// Antonio Germani - se c'è un lotto ne accodo numero e scadenza alla descrizione articolo
+				// Aurora SRL - se c'è un lotto ne accodo numero e scadenza alla descrizione articolo
 				if (isset ($form['righi'][$k]['id_lotmag']) && intval ($form['righi'][$k]['id_lotmag'])>0){
 					if (intval ($form['righi'][$k]['expiry'])<=0){
 						$form['righi'][$k]['expiry']="";
@@ -1063,7 +1063,7 @@ if (isset($_POST['ddt']) || isset($_POST['cmr'])){ //conferma dell'evasione di u
                         $form['righi'][$k]['tiprig'] == 210 && ! empty($form['righi'][$k]['codart'])) {
                     $id_movmag = $upd_mm->uploadMag($last_rigdoc_id, $form['tipdoc'], $form['numdoc'], $form['seziva'], $dataemiss, $form['clfoco'], $form['sconto'], $form['caumag'], $v['codart'], $v['quanti'], $v['prelis'], $v['sconto'], 0, $admin_aziend['stock_eval_method']);
                 }
-				// Antonio Germani - inserisco il movimento integrativo SIAN
+				// Aurora SRL - inserisco il movimento integrativo SIAN
 				if ($form['righi'][$k]['SIAN']>0){// se l'articolo movimenta il SIAN creo il movimento SIAN
 					$value_sian['cod_operazione']= $form['righi'][$k]['cod_operazione'];
 					$value_sian['recip_stocc']= $form['righi'][$k]['recip_stocc'];
@@ -1072,7 +1072,7 @@ if (isset($_POST['ddt']) || isset($_POST['cmr'])){ //conferma dell'evasione di u
 					$value_sian['id_movmag']=$id_movmag;
 					gaz_dbi_table_insert('camp_mov_sian', $value_sian);
 				}
-				// Antonio Germani - inserisco id_lotmag nel movimento di magazzino appena registrato
+				// Aurora SRL - inserisco id_lotmag nel movimento di magazzino appena registrato
 				if (intval($v['id_lotmag']) >0){
 					$w=array();
           $w[0]='id_mov';$w[1]=$id_movmag;
@@ -1438,7 +1438,7 @@ $script_transl = HeadMain(0, array('calendarpopup/CalendarPopup', 'custom/autoco
                 echo "<td>" . $v['codart'] . "</td>\n";
                 echo "<td>" . $v['descri'];
 
-                //Antonio Germani - form movimento SIAN
+                //Aurora SRL - form movimento SIAN
                 if ($v['SIAN']>0) {
                   echo '<input type="hidden" value="' . $v['SIAN'] . '" name="righi[' . $k . '][SIAN]" />
                       <input type="hidden" value="' . $v['confezione'] . '" name="righi[' . $k . '][confezione]" />
@@ -1473,7 +1473,7 @@ $script_transl = HeadMain(0, array('calendarpopup/CalendarPopup', 'custom/autoco
                   ';
                 }
 
-                // Antonio Germani - inizio gestione lotti
+                // Aurora SRL - inizio gestione lotti
                 echo "<input type=\"hidden\" value=\"" . $v['lot_or_serial'] . "\" name=\"righi[$k][lot_or_serial]\">\n";
 
                 if ($v['lot_or_serial'] > 0) { // se l'articolo prevede lotti apro gestione lotti
@@ -1578,7 +1578,7 @@ $script_transl = HeadMain(0, array('calendarpopup/CalendarPopup', 'custom/autoco
                     }
                   }
 
-                  // Antonio Germani - Cambio lotto  -->
+                  // Aurora SRL - Cambio lotto  -->
                   echo '<div id="lm_dialog' . $k . '" class="collapse" >';
 
                   if ((count($lm->available) >= 1)) {
@@ -1603,7 +1603,7 @@ $script_transl = HeadMain(0, array('calendarpopup/CalendarPopup', 'custom/autoco
                 }
 				// fine gestione lotti
 
-				// Antonio Germani - controllo e warning disponibilità
+				// Aurora SRL - controllo e warning disponibilità
 				$articolo = gaz_dbi_get_row($gTables['artico'], "codice", $v['codart']);
 				if (isset($articolo) && $checkin == " checked" && $articolo['good_or_service']<>1 ){ // solo se da evadere
 					echo "<input type=\"hidden\" value=\"" . $v['giac'] . "\" name=\"righi[$k][giac]\">\n";
@@ -1676,7 +1676,7 @@ $script_transl = HeadMain(0, array('calendarpopup/CalendarPopup', 'custom/autoco
             echo "<input type=\"submit\" class=\"btn btn-success\" name=\"fai\" value=\"" . $script_transl['issue_fat'] . "\" accesskey=\"f\" />\n";
             if (!empty($alert_sezione))
                 echo " &sup1;";
-			if (!isset($cliente) || (intval($cliente['pariva'])==0 && strlen($cliente['codfis'])<11)){ // Antonio Germani - se non c'è partita iva e non c'è codice fiscale
+			if (!isset($cliente) || (intval($cliente['pariva'])==0 && strlen($cliente['codfis'])<11)){ // Aurora SRL - se non c'è partita iva e non c'è codice fiscale
 				echo "<input type=\"submit\" class=\"btn btn-success\" name=\"vcoA\" value=\"" . $script_transl['issue_cor'] . " anonimo\" accesskey=\"c\" />\n";
 			} elseif ((intval($cliente['pariva'])==0 AND strlen($cliente['codfis'])>10) OR ($cliente['country'] !== "IT")) {
 				echo "<input type=\"submit\" class=\"btn btn-success\" name=\"vco\" value=\"" . $script_transl['issue_cor'] . "\" accesskey=\"c\" />\n";

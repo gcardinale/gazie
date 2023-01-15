@@ -2,8 +2,8 @@
 /*
   --------------------------------------------------------------------------
   GAzie - Gestione Azienda
-  Copyright (C) 2004-2023 - Antonio De Vincentiis Montesilvano (PE)
-  (http://www.devincentiis.it)
+  Copyright (C) 2004-2023 - Aurora SRL Alia (PA)
+  (http://www.aurorasrl.it)
   <http://gazie.sourceforge.net>
   --------------------------------------------------------------------------
   Questo programma e` free software;   e` lecito redistribuirlo  e/o
@@ -598,7 +598,7 @@ if ((isset($_POST['Insert'])) || ( isset($_POST['Update']))) {   //se non e' il 
       if ($v['ritenuta']>=0.01){
         $rit_ctrl=true;
       }
-      // Antonio Germani - controllo input su rigo SIAN
+      // Aurora SRL - controllo input su rigo SIAN
       if ($v['SIAN']>0 && $v['SIAN']<6){
         if ($v['cod_operazione'] < 0 || $v['cod_operazione']==11){ // controllo se è stato inserito il codice operazione SIAN
           $msgrigo = $i + 1;
@@ -636,7 +636,7 @@ if ((isset($_POST['Insert'])) || ( isset($_POST['Update']))) {   //se non e' il 
           $msg['err'][] = "soloconf"; // Cessione omaggio solo confezionato
         }
       }
-      // Antonio Germani - controllo input su lotti rigo
+      // Aurora SRL - controllo input su lotti rigo
       if ($v['lot_or_serial']>0){
         // controllo se per questo ID lotto la quantità richiesta è sufficiente
         $idmag="";
@@ -1783,7 +1783,7 @@ if ((isset($_POST['Insert'])) || ( isset($_POST['Update']))) {   //se non e' il 
 			}
 		}
 	}
-	foreach ($form['rows'] as $i => $v) { // Antonio Germani - controllo delle giacenze per l'articolo con lotti e data di registrazione per SIAN
+	foreach ($form['rows'] as $i => $v) { // Aurora SRL - controllo delle giacenze per l'articolo con lotti e data di registrazione per SIAN
 		if ($v['SIAN']>0){
 			$uldtfile=getLastSianDay();
 			if (strtotime($datemi) < strtotime($uldtfile)){
@@ -2561,7 +2561,7 @@ echo '<td><input class="gazie-tooltip" data-type="product-thumb" data-id="' . $v
 					';
             if ($v['lot_or_serial'] >= 1) { // se l'articolo prevede lotti
                 $lm->getAvailableLots($v['codart'], $v['id_mag']);
-				// Antonio Germani - calcolo delle giacenze per ogni singolo lotto
+				// Aurora SRL - calcolo delle giacenze per ogni singolo lotto
 				$count=array();
 				foreach ($lm->available as $v_lm) { // calcolo la disponbilità per ogni lotto raggruppato
 					$key=$v_lm['identifier']; // chiave per il conteggio dei totali raggruppati per lotto
@@ -2635,7 +2635,7 @@ echo '<td><input class="gazie-tooltip" data-type="product-thumb" data-id="' . $v
 				echo '<div><button class="btn btn-xs btn-danger">ATTENZIONE articolo con lotti ma non ci sono lotti selezionabili.</button></div>';
 			}
 
-			// Antonio Germani - Se l'articolo movimenta il SIAN come olio/olive lo apro
+			// Aurora SRL - Se l'articolo movimenta il SIAN come olio/olive lo apro
 			if ($form['rows'][$k]['SIAN']>0 && $form['rows'][$k]['SIAN']<6) {
 				$art = gaz_dbi_get_row($gTables['camp_artico'], "codice", $v['codart']);
 				?>
@@ -3211,7 +3211,7 @@ $gForm->selTypeRow('in_tiprig', $form['in_tiprig']);
 $select_artico = new selectartico("in_codart");
 $select_artico->addSelected($form['in_codart']);
 $select_artico->output(substr($form['cosear'], 0, 32));
-// Antonio Germani - input ricerca con pistola lettore codice a barre
+// Aurora SRL - input ricerca con pistola lettore codice a barre
 if ($toDo == "insert"){
 	$class_btn_confirm='btn-warning';
 	if ($form['ok_barcode']!="ok"){
@@ -3240,7 +3240,7 @@ if ($toDo == "insert"){
 }else{
 	$class_btn_confirm='btn-warning';
 }
-// Antonio Germani - fine ricerca con pistola lettore codice a barre -->
+// Aurora SRL - fine ricerca con pistola lettore codice a barre -->
 ?>
             </div>
             <div class="form-group col-xs-12 col-sm-6 col-md-3">

@@ -3,8 +3,8 @@
 /*
   --------------------------------------------------------------------------
   GAzie - Gestione Azienda
-  Copyright (C) 2004-2023 - Antonio De Vincentiis Montesilvano (PE)
-  (http://www.devincentiis.it)
+  Copyright (C) 2004-2023 - Aurora SRL Alia (PA)
+  (http://www.aurorasrl.it)
   <http://gazie.sourceforge.net>
   --------------------------------------------------------------------------
   Questo programma e` free software;   e` lecito redistribuirlo  e/o
@@ -375,7 +375,7 @@ class DocContabVars {
         $this->riporto = 0;
         $results = array();
         while ($rigo = gaz_dbi_fetch_array($rs_rig)) {
-            // Antonio Germani - se c'è un lotto ne accodo numero e scadenza alla descrizione
+            // Aurora SRL - se c'è un lotto ne accodo numero e scadenza alla descrizione
             $checklot=gaz_dbi_get_row($this->gTables['movmag'],'id_mov',$rigo['id_mag']);
             if ($checklot && strlen ($checklot['id_lotmag'])>0){
               $getlot=gaz_dbi_get_row($this->gTables['lotmag'],'id',$checklot['id_lotmag']);
@@ -432,7 +432,7 @@ class DocContabVars {
         $this->ritenuta = 0.00;
         $results = array();
         while ($rigo = gaz_dbi_fetch_array($rs_rig)) {
-			// Antonio Germani - se c'è un codice a barre valorizzo barcode
+			// Aurora SRL - se c'è un codice a barre valorizzo barcode
 			$art = gaz_dbi_get_row( $this->gTables['artico'], 'codice', $rigo['codart']);
 			if ($art && intval($art['barcode'])>0){
 				$rigo['barcode']=$art['barcode'];
@@ -440,7 +440,7 @@ class DocContabVars {
 				$rigo['barcode']="";
 			}
 
-			// Antonio Germani - se c'è un lotto ne accodo numero e scadenza alla descrizione
+			// Aurora SRL - se c'è un lotto ne accodo numero e scadenza alla descrizione
 			$checklot=gaz_dbi_get_row($this->gTables['movmag'],'id_mov',$rigo['id_mag']);
 			if ($checklot && strlen ($checklot['id_lotmag'])>0){
 				$getlot=gaz_dbi_get_row($this->gTables['lotmag'],'id',$checklot['id_lotmag']);
@@ -453,7 +453,7 @@ class DocContabVars {
 				}
 			}
 
-			//Antonio Germani
+			//Aurora SRL
 			if (isset($art['durability_mu']) AND ($art['durability_mu']==">" OR $art['durability_mu']=="<")){ // se impostato accodo la durabilità alla descrizione serve per gli agroalimentari
 				$rigo['descri'] = $rigo['descri']." - Durabilità ".$art['durability_mu']." ".$art['durability']."gg";
 			}
@@ -642,7 +642,7 @@ function createDocument($testata, $templateName, $gTables, $rows = 'rigdoc', $de
         'Maintenance'=>'maintenance',
         'BookingSummary' => 'booking_summary'
     );
-	// Antonio Germani - seleziono quale template utilizzare per le ricevute fiscali in base alla configurazione azienda
+	// Aurora SRL - seleziono quale template utilizzare per le ricevute fiscali in base alla configurazione azienda
 	if ($templateName=='Received'){
 		$stampa_ricevute = gaz_dbi_get_row($gTables['company_config'], 'var', 'received_template');
 		if (strlen(trim($stampa_ricevute['val']))>2){

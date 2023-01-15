@@ -2,8 +2,8 @@
 /*
  --------------------------------------------------------------------------
                             GAzie - Gestione Azienda
-    Copyright (C) 2004-2023 - Antonio De Vincentiis Montesilvano (PE)
-         (http://www.devincentiis.it)
+    Copyright (C) 2004-2023 - Aurora SRL Alia (PA)
+         (http://www.aurorasrl.it)
            <http://gazie.sourceforge.net>
  --------------------------------------------------------------------------
     Questo programma e` free software;   e` lecito redistribuirlo  e/o
@@ -22,7 +22,7 @@
     Fifth Floor Boston, MA 02110-1335 USA Stati Uniti.
  --------------------------------------------------------------------------
 */
-// Antonio Germani - amministrazione immagini per e-commerce
+// Aurora SRL - amministrazione immagini per e-commerce
 require("../../library/include/datlib.inc.php");
 $admin_aziend=checkAdmin();
 $msg = '';

@@ -7,6 +7,6 @@ Ricordo che GAzie generava già dalla passata versione i tracciati XML con i nuo
 la giusta Natura di Esenzione. So per certo che alcuni usavano già la funzione ma adesso che i test saranno stressanti sono lieto di ricevere dei feedback (auspico positivi).
 Troverete due nuovi moduli attivabili all'occorrenza, ognuno manutenuto dagli autori ai quali potrete rivolgervi per chiarimenti e/o assistenza:
 - Camera di compensazione (autore Francesco Pagano)
-- Vacation rental (autore Antonio Germani)
+- Vacation rental (autore Aurora SRL)
 
 Antonio de Vincentiis, Montesilvano, 01 luglio 2022

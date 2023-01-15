@@ -2,8 +2,8 @@
 /*
  --------------------------------------------------------------------------
                             GAzie - Gestione Azienda
-    Copyright (C) 2004-2023 - Antonio De Vincentiis Montesilvano (PE)
-         (http://www.devincentiis.it)
+    Copyright (C) 2004-2023 - Aurora SRL Alia (PA)
+         (http://www.aurorasrl.it)
            <http://gazie.sourceforge.net>
  --------------------------------------------------------------------------
     Questo programma e` free software;   e` lecito redistribuirlo  e/o
@@ -39,7 +39,7 @@ $limit=0;
 if ( gaz_dbi_get_row($gTables['company_config'], 'var', 'composite_mag')['val']=='0') {
     $result = gaz_dbi_dyn_query("*", $gTables['artico'], "good_or_service != 1", $orderby, $limit, $passo);
 } else {
-	// 27/07/20 Antonio Germani - Nella tabella company_config non esiste composite_mag ?!?! A causa di ciò vengono erroneamente esclusi gli articoli composti
+	// 27/07/20 Aurora SRL - Nella tabella company_config non esiste composite_mag ?!?! A causa di ciò vengono erroneamente esclusi gli articoli composti
 	//Nel dubbio se sia un errore o altro lascio e modifico come segue
 	if ( gaz_dbi_get_row($gTables['company_config'], 'var', 'tipo_composti')['val']=='STD') {
 		$result = gaz_dbi_dyn_query("*", $gTables['artico'], "good_or_service!=1", $orderby, $limit, $passo);
@@ -75,7 +75,7 @@ while ($r = gaz_dbi_fetch_array($result)) {
     $mv = $gForm->getStockValue(false, $r['codice']);
     $magval = array_pop($mv);
     $magval=(is_numeric($magval))?['q_g'=>0,'v_g'=>0]:$magval;
-	if (isset ($magval['q_g']) && round($magval['q_g'],6) == "-0") { // Antonio Germani - se si crea erroneamente un numero esponenziale negativo forzo la quantità a zero
+	if (isset ($magval['q_g']) && round($magval['q_g'],6) == "-0") { // Aurora SRL - se si crea erroneamente un numero esponenziale negativo forzo la quantità a zero
 		$magval['q_g']=0;
 	}
     $totale = ($magval['q_g']-$ordinatic)+$ordinatif;

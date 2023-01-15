@@ -2,8 +2,8 @@
 /*
  --------------------------------------------------------------------------
                             GAzie - Gestione Azienda
-    Copyright (C) 2004-2023 - Antonio De Vincentiis Montesilvano (PE)
-         (http://www.devincentiis.it)
+    Copyright (C) 2004-2023 - Aurora SRL Alia (PA)
+         (http://www.aurorasrl.it)
            <http://gazie.sourceforge.net>
  --------------------------------------------------------------------------
     Questo programma e` free software;   e` lecito redistribuirlo  e/o
@@ -187,7 +187,7 @@ class Scontrino extends Template
         }
         //FINE calcolo scadenze
         if (!empty($this->descriptive_last_row) ) { // aggiungo alla fine un eventuale rigo descrittivo dalla configurazione avanzata azienda
-                if (strlen($this->descriptive_last_row)>200){// Antonio Germani - se è troppo lungo lo divido in due righe
+                if (strlen($this->descriptive_last_row)>200){// Aurora SRL - se è troppo lungo lo divido in due righe
 					$descrtoolong=explode(" ",$this->descriptive_last_row);
 					for ($n=0; $n<=count($descrtoolong)/2; $n++){
 						$txt1=$txt1.$descrtoolong[$n]." ";

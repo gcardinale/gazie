@@ -2,14 +2,14 @@
 /*
 	  --------------------------------------------------------------------------
 	  GAzie - Gestione Azienda
-	  Copyright (C) 2004-2023 - Antonio De Vincentiis Montesilvano (PE)
-	  (http://www.devincentiis.it)
+	  Copyright (C) 2004-2023 - Aurora SRL Alia (PA)
+	  (http://www.aurorasrl.it)
 	  <http://gazie.sourceforge.net>
 	  --------------------------------------------------------------------------
-	  REGISTRO DI CAMPAGNA è un modulo creato per GAzie da Antonio Germani, Massignano AP
-	  Copyright (C) 2018-2021 - Antonio Germani, Massignano (AP)
-	  https://www.lacasettabio.it
-	  https://www.programmisitiweb.lacasettabio.it
+	  REGISTRO DI CAMPAGNA è un modulo creato per GAzie da Aurora SRL, Alia PA
+	  Copyright (C) 2018-2021 - Aurora SRL, Alia (PA)
+	  http://www.aurorasrl.it
+	  https://www.aurorasrl.it
 	  --------------------------------------------------------------------------
 	  Questo programma e` free software;   e` lecito redistribuirlo  e/o
 	  modificarlo secondo i  termini della Licenza Pubblica Generica GNU
@@ -143,7 +143,7 @@ $(function() {
 				<td class="FacetFieldCaptionTD">
 					<input type="text" name="causale" placeholder="<?php echo "ID ",$strScript['camp_admin_movmag.php'][2];?>" class="input-sm form-control" value="<?php echo (isset($causale))? $causale : ""; ?>" maxlength="6" tabindex="1" class="FacetInput">
 				</td>
-				<!-- Antonio Germani - inserisco l'intestazione cerca per campi di coltivazione e avversità -->
+				<!-- Aurora SRL - inserisco l'intestazione cerca per campi di coltivazione e avversità -->
 				<td class="FacetFieldCaptionTD">
 					<input type="text" name="campo" placeholder="<?php echo "ID ",$script_transl[11];?>" class="input-sm form-control" value="<?php echo (isset($campo))? $campo : ""; ?>" maxlength="" tabindex="1" class="FacetInput">
 				</td>
@@ -221,7 +221,7 @@ while ($a_row = gaz_dbi_fetch_array($result)) {
 		echo "<td class=\"FacetDataTD\" align=\"center\">".gaz_format_date($a_row["datdoc"])." &nbsp;</td>\n";
 		echo "<td class=\"FacetDataTD\" align=\"center\">".$a_row["caumag"]." - ".$a_row["descau"]."</td>\n";
 
-		// Antonio Germani inserico colonna campi di coltivazione, superficie, coltura
+		// Aurora SRL inserico colonna campi di coltivazione, superficie, coltura
 		echo "<td class=\"FacetDataTD\" align=\"center\">".$a_row['campo_impianto']." - ".$a_row['descamp']." &nbsp;</td>\n";
 		echo "<td class=\"FacetDataTD\" align=\"center\">".str_replace('.', ',',$a_row["superf"])." &nbsp;</td>\n";
 		echo "<td class=\"FacetDataTD\" align=\"center\">".$a_row['id_colture']." - ".$a_row["nome_colt"]." &nbsp";

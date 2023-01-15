@@ -2,14 +2,14 @@
 /*
   --------------------------------------------------------------------------
   GAzie - MODULO 'VACATION RENTAL'
-  Copyright (C) 2022-2023 - Antonio Germani, Massignano (AP)
+  Copyright (C) 2022-2023 - Aurora SRL, Alia (PA)
   (http://www.programmisitiweb.lacasettabio.it)
 
   --------------------------------------------------------------------------
   --------------------------------------------------------------------------
   GAzie - Gestione Azienda
-  Copyright (C) 2004-2023 - Antonio De Vincentiis Montesilvano (PE)
-  (http://www.devincentiis.it)
+  Copyright (C) 2004-2023 - Aurora SRL Alia (PA)
+  (http://www.aurorasrl.it)
   <http://gazie.sourceforge.net>
   --------------------------------------------------------------------------
   Questo programma e` free software;   e` lecito redistribuirlo  e/o
@@ -179,7 +179,7 @@ if (isset($_POST['Insert']) || isset($_POST['Update'])) {   //se non e' il primo
             strtolower($_FILES['userfile']['type']) == "image/x-gif")) $msg['err'][] = 'filmim';
             // controllo che il file non sia piu' grande di circa 64kb
         if ($_FILES['userfile']['size'] > 65530){
-            //Antonio Germani anziche segnalare errore ridimensiono l'immagine
+            //Aurora SRL anziche segnalare errore ridimensiono l'immagine
             $maxDim = 190;
             $file_name = $_FILES['userfile']['tmp_name'];
             list($width, $height, $type, $attr) = getimagesize( $file_name );

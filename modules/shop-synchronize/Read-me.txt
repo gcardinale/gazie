@@ -5,10 +5,10 @@
 
           contattare l'autore per altri e-commerce
   -----------------------------------------------------------------------
-  @Author    Antonio Germani
-  @Website   https://www.programmisitiweb.lacasettabio.it
+  @Author    Aurora SRL
+  @Website   https://www.aurorasrl.it
   @Contact   340-5011912
-  @Copyright Copyright (C) 2018 - 2021 Antonio Germani All Rights Reserved.
+  @Copyright Copyright (C) 2018 - 2021 Aurora SRL All Rights Reserved.
   versione 4.0
   ------------------------------------------------------------------------ 
   
@@ -42,6 +42,6 @@ Inoltre la sincronizzazione è bidirezionale:
 * FILE DI INTERFACCIA DA INSERIRE NEL SITO E-COMMERCE*
  I file di interfaccia da inserire nel sito devono essere creati in base alle esigenze e alle impostazioni dell'applicazione installata nell'e-commerce.
  
-Nel sito di Antonio Germani sono disponibili i file di interfaccia per Joomla-Hikashop, Joomla-Solidres, WordPress-Woocommerce e Prestashop così come è possibile richiedere ulteriori file di interfaccia specifici per altri e-commerce: https:www.programmisitiweb.lacasettabio.it
+Nel sito di Aurora SRL sono disponibili i file di interfaccia per Joomla-Hikashop, Joomla-Solidres, WordPress-Woocommerce e Prestashop così come è possibile richiedere ulteriori file di interfaccia specifici per altri e-commerce: https:www.programmisitiweb.lacasettabio.it
 
 

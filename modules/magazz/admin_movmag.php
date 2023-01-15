@@ -2,8 +2,8 @@
 /*
   --------------------------------------------------------------------------
   GAzie - Gestione Azienda
-  Copyright (C) 2004-2023 - Antonio De Vincentiis Montesilvano (PE)
-  (http://www.devincentiis.it)
+  Copyright (C) 2004-2023 - Aurora SRL Alia (PA)
+  (http://www.aurorasrl.it)
   <http://gazie.sourceforge.net>
   --------------------------------------------------------------------------
   Questo programma e` free software;   e` lecito redistribuirlo  e/o
@@ -118,7 +118,7 @@ if (!isset($_POST['Update']) && isset($_GET['Update'])) { //se e' il primo acces
 		$form['expiry'] = $result_lotmag['expiry'];
 	}
 	$form['lot_or_serial']=$item_artico['lot_or_serial'];
-  // Antonio Germani - se è presente, recupero il file documento lotto
+  // Aurora SRL - se è presente, recupero il file documento lotto
   $form['filename'] = "";
   if (file_exists(DATA_DIR.'files/' . $admin_aziend['company_id']) > 0) {
       // recupero il filename dal filesystem
@@ -255,7 +255,7 @@ if (!isset($_POST['Update']) && isset($_GET['Update'])) { //se e' il primo acces
       $form['hidden_req'] = '';
   }
 
-	if (!empty($_FILES['docfile_']['name'])) { // Antonio Germani - se c'è un nome in $_FILES
+	if (!empty($_FILES['docfile_']['name'])) { // Aurora SRL - se c'è un nome in $_FILES
 		$prefix = $admin_aziend['adminid'] . '_' . $admin_aziend['company_id'];
 		foreach (glob(DATA_DIR."files/tmp/" . $prefix . "_*.*") as $fn) { // prima cancello eventuali precedenti file temporanei
 			unlink($fn);
@@ -355,7 +355,7 @@ if (!isset($_POST['Update']) && isset($_GET['Update'])) { //se e' il primo acces
     }
     if (isset($_GET['id_mov']) && intval($_GET['id_mov'])>0){
       $result = gaz_dbi_get_row($gTables['movmag'], "id_mov", intval($_GET['id_mov']));
-      if ($result['type_mov']<>0){ //Antonio Germani è un movimento che va gestito esclusivamente con il modulo Camp
+      if ($result['type_mov']<>0){ //Aurora SRL è un movimento che va gestito esclusivamente con il modulo Camp
         $msg .="20+";
       }
     }
@@ -392,7 +392,7 @@ if (!isset($_POST['Update']) && isset($_GET['Update'])) { //se e' il primo acces
     }
     if (empty($msg)) { // nessun errore
       $upd_mm = new magazzForm;
-      // Antonio Germani - inizio salvataggio lotto
+      // Aurora SRL - inizio salvataggio lotto
       if ($form['lot_or_serial']==1){ // se l'articolo prevede un lotto
         if (strlen($form['identifier']) == 0) { // se non è stato digitato un lotto lo inserisco d'ufficio come data e ora
           $form['identifier'] = date("Ymd Hms");
@@ -424,7 +424,7 @@ if (!isset($_POST['Update']) && isset($_GET['Update'])) { //se e' il primo acces
           gaz_dbi_query("UPDATE " . $gTables['lotmag'] . " SET codart = '" . $form['artico'] . "' , identifier = '" . $form['identifier'] . "' , expiry = '" . $form['expiry'] . "' WHERE id = '" . $form['id_lotmag'] . "'");
         }
 
-        // Antonio Germani - salvo documento/CERTIFICATO del lotto
+        // Aurora SRL - salvo documento/CERTIFICATO del lotto
         if (substr($form['filename'], 0, 7) <> 'lotmag_') { // se è stato cambiato il file, cioè il nome non inizia con lotmag e, quindi, anche se è un nuovo insert
           if (!empty($form['filename'])) { // e se ha un nome impostato nel form
             $tmp_file = DATA_DIR."files/tmp/" . $admin_aziend['adminid'] . '_' . $admin_aziend['company_id'] . '_' . $form['filename'];
@@ -725,7 +725,7 @@ $select_artico = new selectartico("artico");
 				$select_artico->addSelected($form['artico']);
 				$select_artico->output(substr($form['cosear'], 0,32));
 
-    // Antonio Germani > Inizio LOTTO in uscita o in entrata o creazione nuovo
+    // Aurora SRL > Inizio LOTTO in uscita o in entrata o creazione nuovo
 if ($form['artico'] != "" && intval( $item_artico['lot_or_serial'] && $form['caumag']<>99) == 1) { // se l'articolo prevede il lotto e non è un inventario, apro la gestione lotti nel form
 	$form['lot_or_serial']=$item_artico['lot_or_serial'];
 	?>
@@ -767,7 +767,7 @@ if ($form['artico'] != "" && intval( $item_artico['lot_or_serial'] && $form['cau
 		echo '<label>' . 'Scadenza: ' . ' </label><input class="datepicker" type="text" onchange="this.form.submit();" name="expiry"  value="' . $form['expiry'] . '"></div></div></div>';
 	} else {
 		if (($form['operat']==-1 or $form['operat']==0) && $form['quanti']>0){  // se è scarico e è stata impostata la quantità
-		 	$lm -> getAvailableLots($form['artico'],$form['id_mov']); // Antonio Germani -
+		 	$lm -> getAvailableLots($form['artico'],$form['id_mov']); // Aurora SRL -
 			$ld = $lm->divideLots($form['quanti']);
 			$l = 0;
 			// calcolo delle giacenze per ogni singolo lotto
@@ -861,7 +861,7 @@ if ($form['artico'] != "" && intval( $item_artico['lot_or_serial'] && $form['cau
 			}
 
 			?>
-			<!-- Antonio Germani - Cambio lotto  -->
+			<!-- Aurora SRL - Cambio lotto  -->
 			<div id="lm_dialog" class="collapse" >
 			<?php
 			if ((count($lm->available) >= 1)) {

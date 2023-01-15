@@ -2,8 +2,8 @@
 /*
  --------------------------------------------------------------------------
                             GAzie - Gestione Azienda
-    Copyright (C) 2004-2023 - Antonio De Vincentiis Montesilvano (PE)
-         (http://www.devincentiis.it)
+    Copyright (C) 2004-2023 - Aurora SRL Alia (PA)
+         (http://www.aurorasrl.it)
            <http://gazie.sourceforge.net>
  --------------------------------------------------------------------------
     Questo programma e` free software;   e` lecito redistribuirlo  e/o
@@ -151,7 +151,7 @@ $table = $gTables['movmag']." LEFT JOIN ".$gTables['caumag']." on (".$gTables['m
          LEFT JOIN ".$gTables['artico']." ON (".$gTables['movmag'].".artico = ".$gTables['artico'].".codice)
 		 LEFT JOIN ".$gTables['clfoco']." ON (".$gTables['movmag'].".clfoco = ".$gTables['clfoco'].".codice)
 		 LEFT JOIN ".$gTables['lotmag']." ON (".$gTables['movmag'].".id_lotmag = ".$gTables['lotmag'].".id)";
-		/* Antonio Germani - momentaneamente commentato, di comune accordo con Antonio de Vincentiis, perché causa un ambiguous column names con id_lotmag quando si utilizza l'ID lotto come filtro
+		/* Aurora SRL - momentaneamente commentato, di comune accordo con Antonio de Vincentiis, perché causa un ambiguous column names con id_lotmag quando si utilizza l'ID lotto come filtro
 		LEFT JOIN ".$gTables['orderman']." ON (".$gTables['movmag'].".id_orderman = ".$gTables['orderman'].".id)
 		*/
 $result = gaz_dbi_dyn_query ($gTables['movmag'].".*, ".$gTables['warehouse'].".name AS desmag, ".$gTables['artico'].".descri AS descart, ".$gTables['caumag'].".descri AS descau, ".$gTables['lotmag'].".*", $table, $t->where, $t->orderby, $t->getOffset(), $t->getLimit());

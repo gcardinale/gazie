@@ -2,14 +2,14 @@
 /*
 	  --------------------------------------------------------------------------
 	  GAzie - Gestione Azienda
-	  Copyright (C) 2004-2023 - Antonio De Vincentiis Montesilvano (PE)
-	  (http://www.devincentiis.it)
+	  Copyright (C) 2004-2023 - Aurora SRL Alia (PA)
+	  (http://www.aurorasrl.it)
 	  <http://gazie.sourceforge.net>
 	  --------------------------------------------------------------------------
-	  SHOP SYNCHRONIZE è un modulo creato per GAzie da Antonio Germani, Massignano AP 
-	  Copyright (C) 2019-2021 - Antonio Germani, Massignano (AP)
-	  https://www.lacasettabio.it 
-	  https://www.programmisitiweb.lacasettabio.it
+	  SHOP SYNCHRONIZE è un modulo creato per GAzie da Aurora SRL, Alia PA 
+	  Copyright (C) 2019-2021 - Aurora SRL, Alia (PA)
+	  http://www.aurorasrl.it 
+	  https://www.aurorasrl.it
 	  --------------------------------------------------------------------------
 	  Questo programma e` free software;   e` lecito redistribuirlo  e/o
 	  modificarlo secondo i  termini della Licenza Pubblica Generica GNU
@@ -29,7 +29,7 @@
 	  # free to use, Author name and references must be left untouched  #
 	  --------------------------------------------------------------------------	  
 */
-// Antonio Germani - Importazione articoli da e-commerce a GAzie con creazione articolo in GAzie se non esiste o aggiornamento se esiste
+// Aurora SRL - Importazione articoli da e-commerce a GAzie con creazione articolo in GAzie se non esiste o aggiornamento se esiste
 
 require("../../library/include/datlib.inc.php");
 $admin_aziend = checkAdmin();

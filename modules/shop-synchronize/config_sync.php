@@ -2,14 +2,14 @@
 /*
 	  --------------------------------------------------------------------------
 	  GAzie - Gestione Azienda
-	  Copyright (C) 2004-2023 - Antonio De Vincentiis Montesilvano (PE)
-	  (http://www.devincentiis.it)
+	  Copyright (C) 2004-2023 - Aurora SRL Alia (PA)
+	  (http://www.aurorasrl.it)
 	  <http://gazie.sourceforge.net>
 	  --------------------------------------------------------------------------
-	  SHOP SYNCHRONIZE è un modulo creato per GAzie da Antonio Germani, Massignano AP
-	  Copyright (C) 2018-2021 - Antonio Germani, Massignano (AP)
-	  https://www.lacasettabio.it
-	  https://www.programmisitiweb.lacasettabio.it
+	  SHOP SYNCHRONIZE è un modulo creato per GAzie da Aurora SRL, Alia PA
+	  Copyright (C) 2018-2021 - Aurora SRL, Alia (PA)
+	  http://www.aurorasrl.it
+	  https://www.aurorasrl.it
 	  --------------------------------------------------------------------------
 	  Questo programma e` free software;   e` lecito redistribuirlo  e/o
 	  modificarlo secondo i  termini della Licenza Pubblica Generica GNU
@@ -30,7 +30,7 @@
 	  --------------------------------------------------------------------------
 -------------------------------------------------------------------------
 
-*** ANTONIO GERMANI  ***
+*** Aurora SRL  ***
 **Configurazione inpostazioni FTP per sincronizzazione con modulo shop-synchronize**
 ***
 
@@ -115,7 +115,7 @@ $result = gaz_dbi_dyn_query("*", $gTables['company_config'], "1=1", ' id ASC', 0
 ?>
 <div align="center" class="FacetFormHeaderFont">
 	Impostazioni per sincronizzazione sito web tramite il modulo shop-synchronize
-    <br> di Antonio Germani
+    <br> di Aurora SRL
 </div>
 
 

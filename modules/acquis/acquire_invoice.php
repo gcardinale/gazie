@@ -2,8 +2,8 @@
 /*
   --------------------------------------------------------------------------
   GAzie - Gestione Azienda
-  Copyright (C) 2004-2023 - Antonio De Vincentiis Montesilvano (PE)
-  (http://www.devincentiis.it)
+  Copyright (C) 2004-2023 - Aurora SRL Alia (PA)
+  (http://www.aurorasrl.it)
   <http://gazie.sourceforge.net>
   --------------------------------------------------------------------------
   Questo programma e` free software;   e` lecito redistribuirlo  e/o
@@ -572,7 +572,7 @@ if (!isset($_POST['fattura_elettronica_original_name'])) { // primo accesso ness
 				$form['rows'][$nl]['unimis'] =  ($item->getElementsByTagName('UnitaMisura')->length >= 1 ? $item->getElementsByTagName('UnitaMisura')->item(0)->nodeValue :	'');
 				$form['rows'][$nl]['prelis'] = $item->getElementsByTagName('PrezzoUnitario')->item(0)->nodeValue;
 
-				// Antonio Germani prendo il tipo di cessione prestazione che mi servirà per le eccezioni delle anomalie
+				// Aurora SRL prendo il tipo di cessione prestazione che mi servirà per le eccezioni delle anomalie
 				$form['rows'][$nl]['tipocessprest'] = $item->getElementsByTagName('TipoCessionePrestazione')->length >= 1 ? $item->getElementsByTagName('TipoCessionePrestazione')->item(0)->nodeValue : '';
 
 				// inizio applicazione sconto su rigo
@@ -1203,7 +1203,7 @@ if (!isset($_POST['fattura_elettronica_original_name'])) { // primo accesso ness
 				if ($doc->getElementsByTagName('DatiDDT')->length<1 || $form['tipdoc']=="AFC"){
 					// se non ci sono ddt vuol dire che è una fattura immediata AFA
 					//oppure se è una nota credito AFC non devo considerare eventuali DDT a riferimento
-					$ultimo_id=tesdocInsert($form); // Antonio Germani - creo fattura immediata senza ddt
+					$ultimo_id=tesdocInsert($form); // Aurora SRL - creo fattura immediata senza ddt
                     $fn = DATA_DIR . 'files/' . $admin_aziend["codice"] . '/'.$ultimo_id.'.inv';
                     file_put_contents($fn,$form['fattura_elettronica_original_content']);
 				}
@@ -1241,7 +1241,7 @@ if (!isset($_POST['fattura_elettronica_original_name'])) { // primo accesso ness
 					$movmag_datreg=$form['datreg'];
 					if (isset($v['exist_ddt']) && $form['tipdoc']!=="AFC") { // se ci sono DDT collegabili alla FAE e non è una nota credito AFC
 						if ($ctrl_ddt!=$v['NumeroDDT']) {
-							// Antonio Germani - controllo se esiste tesdoc di questo ddt usando la funzione existDdT
+							// Aurora SRL - controllo se esiste tesdoc di questo ddt usando la funzione existDdT
 							$exist_tesdoc=existDdT($v['NumeroDDT'],$v['DataDDT'],$form['clfoco']);
 							// registro il DdT in data di emissione, se già presente conservo quella dei movimenti di magazzino che andrò ad eliminare (vedi sotto)
 							$movmag_datreg=$v['DataDDT'];
@@ -1265,7 +1265,7 @@ if (!isset($_POST['fattura_elettronica_original_name'])) { // primo accesso ness
 								$ddt_type="T";
 							}
 							$form['tipdoc']="AFT";$form['ddt_type']=$ddt_type;$form['numdoc']=$v['NumeroDDT'];$form['datemi']=$v['DataDDT'];
-							$ultimo_id =tesdocInsert($form); // Antonio Germani - creo fattura differita
+							$ultimo_id =tesdocInsert($form); // Aurora SRL - creo fattura differita
 							$fn = DATA_DIR . 'files/' . $admin_aziend["codice"] . '/'.$ultimo_id.'.inv';
 							file_put_contents($fn,$form['fattura_elettronica_original_content']);
 						}
@@ -1322,7 +1322,7 @@ if (!isset($_POST['fattura_elettronica_original_name'])) { // primo accesso ness
 					// inserisco il rigo rigdoc
 					$id_rif=rigdocInsert($form['rows'][$i]);
 					if ($form['rows'][$i]['good_or_service']==0 && strlen($form['rows'][$i]['codart'])>0 && $form['tipdoc']!=="AFC"){ // se l'articolo prevede di movimentare il magazzino e non è una nota credito
-						// Antonio Germani - creo movimento di magazzino sempre perché, se c'erano, sono stati cancellati
+						// Aurora SRL - creo movimento di magazzino sempre perché, se c'erano, sono stati cancellati
 						if (isset($v['NumeroDDT']) && $v['NumeroDDT']>0){ // se c'è un ddt
               $idlotmag='';$n=0;
               foreach($movmag_prev as $movmag_row){// controllo se un rigo con stesso codice articolo e la stessa relativa quantità erano nei movmag cancellati
@@ -1363,7 +1363,7 @@ if (!isset($_POST['fattura_elettronica_original_name'])) { // primo accesso ness
 					$set['status']=1;
 					gaz_dbi_table_update("files", $where, $set);
 
-					//Antonio Germani: caso di 2 o più aziende installate in GAzie con stessa partita IVA e stessa PEC per comunicare con ADE
+					//Aurora SRL: caso di 2 o più aziende installate in GAzie con stessa partita IVA e stessa PEC per comunicare con ADE
 					// dopo aver impostato lo status di acquisita su questa azienda, devo togliere eventuali fae.xml caricati  anche nelle altre aziende.
 					// Quindi, vedo se ci sono altre aziende con stessa partita iva togliendo l'azienda attuale
 					$codice_aziends = gaz_dbi_dyn_query("codice", $gTables['aziend'], "pariva = ".$admin_aziend['pariva']." AND codice <> ".$admin_aziend['codice'] , "codice ASC");

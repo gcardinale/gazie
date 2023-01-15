@@ -3,8 +3,8 @@
 /*
   --------------------------------------------------------------------------
   GAzie - Gestione Azienda
-  Copyright (C) 2004-2023 - Antonio De Vincentiis Montesilvano (PE)
-  (http://www.devincentiis.it)
+  Copyright (C) 2004-2023 - Aurora SRL Alia (PA)
+  (http://www.aurorasrl.it)
   <http://gazie.sourceforge.net>
   --------------------------------------------------------------------------
   Questo programma e` free software;   e` lecito redistribuirlo  e/o
@@ -197,7 +197,7 @@ switch ($_GET['ts']) {
 		  $pdf->Cell(20, 4, 'Descrizione', 1, 0, 'L', true);
 		  $pdf->Cell(250, 4, $row['desart'], 1, 1, 'L', true); /* A capo dopo questa cella */
 		  /* Annotazioni a capo per evitare testo sovrapposto con descrizioni lunghe */
-		  if (strlen($row['annota'])>0){ // Antonio Germani se le annotazioni non ci sono evito di stampare inutilmente la riga
+		  if (strlen($row['annota'])>0){ // Aurora SRL se le annotazioni non ci sono evito di stampare inutilmente la riga
 			$pdf->Cell(20, 4, 'Annotazioni', 1, 0, 'L', true);
 			$pdf->Cell(250, 4, $row['annota'], 1, 1, 'L', true); /* A capo dopo questa cella */
 		  }

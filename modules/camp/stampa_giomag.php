@@ -2,14 +2,14 @@
 /*
 	  --------------------------------------------------------------------------
 	  GAzie - Gestione Azienda
-	  Copyright (C) 2004-2023 - Antonio De Vincentiis Montesilvano (PE)
-	  (http://www.devincentiis.it)
+	  Copyright (C) 2004-2023 - Aurora SRL Alia (PA)
+	  (http://www.aurorasrl.it)
 	  <http://gazie.sourceforge.net>
 	  --------------------------------------------------------------------------
-	  REGISTRO DI CAMPAGNA è un modulo creato per GAzie da Antonio Germani, Massignano AP
-	  Copyright (C) 2018-2021 - Antonio Germani, Massignano (AP)
-	  https://www.lacasettabio.it
-	  https://www.programmisitiweb.lacasettabio.it
+	  REGISTRO DI CAMPAGNA è un modulo creato per GAzie da Aurora SRL, Alia PA
+	  Copyright (C) 2018-2021 - Aurora SRL, Alia (PA)
+	  http://www.aurorasrl.it
+	  https://www.aurorasrl.it
 	  --------------------------------------------------------------------------
 	  Questo programma e` free software;   e` lecito redistribuirlo  e/o
 	  modificarlo secondo i  termini della Licenza Pubblica Generica GNU
@@ -131,7 +131,7 @@ $pdf->SetFont('helvetica','',9);
 if (sizeof($result) > 0 AND $type=="di campagna") {
 	foreach($result as $key => $row)	{
 
-		$res = gaz_dbi_get_row ($gTables['campi'], 'codice', $row['campo_impianto']);// Antonio Germani carico il campo
+		$res = gaz_dbi_get_row ($gTables['campi'], 'codice', $row['campo_impianto']);// Aurora SRL carico il campo
 		if (!isset($res)){
 			$row['campo_impianto']="-";
 		}
@@ -146,7 +146,7 @@ if (sizeof($result) > 0 AND $type=="di campagna") {
 		} else {
 			$pdf->Cell(12,6,substr($row['campo_impianto']." ZVN",0,5),1);
 		}
-		// Antonio Germani Inserisco superficie e coltura
+		// Aurora SRL Inserisco superficie e coltura
 		$pdf->Cell(10,6,str_replace('.', ',',($res)?$res['ricarico']:0),1);
 		$res4 = gaz_dbi_get_row($gTables['camp_colture'], 'id_colt', ($res)?$res['id_colture']:0);
 		$fase="";
@@ -184,10 +184,10 @@ if (sizeof($result) > 0 AND $type=="di campagna") {
 		if ($row['clfoco']>0){
 			$pdf->Cell(18,6,$row['ragso1'].' '.$row['ragso2'],1, 0, 'l', 0, '', 1);
 		} else {
-		/* Antonio Germani - trasformo admin in cognome e nome e lo stampo */
+		/* Aurora SRL - trasformo admin in cognome e nome e lo stampo */
 		$res2 = gaz_dbi_get_row ($gTables['admin'], 'user_name', $row['adminid'] );
 		$pdf->Cell(18,6,$res2['user_lastname']." ".$res2['user_firstname'],1, 0, 'l', 0, '', 1);
-		/* Antonio Germani FINE trasformo nome utente login in cognome e nome */
+		/* Aurora SRL FINE trasformo nome utente login in cognome e nome */
 		}
 		if ($row['perc_N']>0){
 			$row['desdoc']="NPK=".intval($row['perc_N'])."-".intval($row['perc_P'])."-".intval($row['perc_K'])." ".$row['desdoc'];

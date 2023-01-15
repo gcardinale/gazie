@@ -2,14 +2,14 @@
 /*
 	  --------------------------------------------------------------------------
 	  GAzie - Gestione Azienda
-	  Copyright (C) 2004-2023 - Antonio De Vincentiis Montesilvano (PE)
-	  (http://www.devincentiis.it)
+	  Copyright (C) 2004-2023 - Aurora SRL Alia (PA)
+	  (http://www.aurorasrl.it)
 	  <http://gazie.sourceforge.net>
 	  --------------------------------------------------------------------------
-	  REGISTRO DI CAMPAGNA è un modulo creato per GAzie da Antonio Germani, Massignano AP 
-	  Copyright (C) 2018-2021 - Antonio Germani, Massignano (AP)
-	  https://www.lacasettabio.it 
-	  https://www.programmisitiweb.lacasettabio.it
+	  REGISTRO DI CAMPAGNA è un modulo creato per GAzie da Aurora SRL, Alia PA 
+	  Copyright (C) 2018-2021 - Aurora SRL, Alia (PA)
+	  http://www.aurorasrl.it 
+	  https://www.aurorasrl.it
 	  --------------------------------------------------------------------------
 	  Questo programma e` free software;   e` lecito redistribuirlo  e/o
 	  modificarlo secondo i  termini della Licenza Pubblica Generica GNU
@@ -76,7 +76,7 @@ foreach ($prevfiles as $files){ // se nella stessa giornata sono stati creati al
 }
 $progr++;
 
-if (!isset($_POST['ritorno'])){// Antonio Germani - se non è stata ricaricata la pagina creo il nome del file
+if (!isset($_POST['ritorno'])){// Aurora SRL - se non è stata ricaricata la pagina creo il nome del file
 	$namefile=$admin_aziend['codfis']."_".$datsta."_".sprintf ("%05d",$progr)."_ANAGFCTO.txt";
 } else { // altrimenti riprendo il nome file già creato
 	$namefile=$_POST['namefile'];
@@ -89,7 +89,7 @@ if (sizeof($_GET) > 0 AND !isset($_POST['ritorno'])) { // se ci sono movimenti e
 	foreach ($_GET as $row) {
 		$type_array= explode (";", $type_zero); // azzero il type array per ogni movimento da creare
 						
-					// >> Antonio Germani - creo il record per questa anagrafica
+					// >> Aurora SRL - creo il record per questa anagrafica
 					
 					$anagra = gaz_dbi_get_row($gTables['anagra'],"id_SIAN",$row);
 					if ($anagra['country']=="IT"){
@@ -104,7 +104,7 @@ if (sizeof($_GET) > 0 AND !isset($_POST['ritorno'])) { // se ci sono movimenti e
 						}
 					}
 					
-					// Antonio Germani - campi comuni a tutti i casi
+					// Aurora SRL - campi comuni a tutti i casi
 					$type_array[0]=str_pad($admin_aziend['codfis'], 16); // aggiunge spazi finali
 					$type_array[1]=$stato; // Stato ditta
 					$type_array[2]=str_pad ($anagra['codfis'],16); // Identificativo fiscale

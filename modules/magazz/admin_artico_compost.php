@@ -2,8 +2,8 @@
 /*
   --------------------------------------------------------------------------
   GAzie - Gestione Azienda
-  Copyright (C) 2004-2023 - Antonio De Vincentiis Montesilvano (PE)
-  (http://www.devincentiis.it)
+  Copyright (C) 2004-2023 - Aurora SRL Alia (PA)
+  (http://www.aurorasrl.it)
   <http://gazie.sourceforge.net>
   --------------------------------------------------------------------------
   Questo programma e` free software;   e` lecito redistribuirlo  e/o
@@ -42,7 +42,7 @@ if (isset($_GET['codice'])){
     $codcomp = filter_var($_GET['codice'],FILTER_SANITIZE_FULL_SPECIAL_CHARS);
 }else{
    // header("Location: ../magazz/admin_artico_compost.php?codice=".$codcomp )
-   // Antonio Germani Se viene aperto senza codice articolo esco e rimando all'elenco articoli
+   // Aurora SRL Se viene aperto senza codice articolo esco e rimando all'elenco articoli
    header ( 'location: ../magazz/report_artico.php');
 
 }
@@ -72,7 +72,7 @@ if (isset($_POST['Insert']) || isset($_POST['Update'])) {   //se non e' il primo
 
 if(isset($_POST['OKsub'])&&$_POST['OKsub']=="Salva"){
     $qta=$_POST['qta'];
-	if (isset($_POST['qta'])){ // Antonio Germani - senza questo controllo si genera un warning all'inserimento del primo componente
+	if (isset($_POST['qta'])){ // Aurora SRL - senza questo controllo si genera un warning all'inserimento del primo componente
 		foreach ($qta as $val=>$v){
 			if (floatval($v)<0.00001) {
 				$msg['err'][] = 'quarow';
@@ -91,7 +91,7 @@ if(isset($_POST['OKsub'])&&$_POST['OKsub']=="Salva"){
 	}
 
 	if (count($msg['err']) == 0) {// nessun errore
-		if (isset($_POST['qta'])){ // Antonio Germani - senza questo controllo si genera un warning all'inserimento del primo componente
+		if (isset($_POST['qta'])){ // Aurora SRL - senza questo controllo si genera un warning all'inserimento del primo componente
 			foreach ($qta as $val=>$v){
 				gaz_dbi_table_update ("distinta_base", array ("0"=>"id","1"=>$val), array("quantita_artico_base"=>$v) );
 			}

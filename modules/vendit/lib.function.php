@@ -3,8 +3,8 @@
 /*
   --------------------------------------------------------------------------
   GAzie - Gestione Azienda
-  Copyright (C) 2004-2023 - Antonio De Vincentiis Montesilvano (PE)
-  (http://www.devincentiis.it)
+  Copyright (C) 2004-2023 - Aurora SRL Alia (PA)
+  (http://www.aurorasrl.it)
   <http://gazie.sourceforge.net>
   --------------------------------------------------------------------------
   Questo programma e` free software;   e` lecito redistribuirlo  e/o
@@ -604,8 +604,8 @@ class lotmag {
 // restituisce tutti i lotti non completamente venduti ordinandoli in base alla configurazione aziendale (FIFO o LIFO)
 // e propone una ripartizione, se viene passato un movimento di magazzino questo verrà escluso perché si suppone sia lo stesso
 // che si sta modificando
-// Antonio Germani - si escludono dal conteggio tutti gli inventari: caumag 98 e 99. Gli inventari non hanno lotti, quindi bisogna analizzare sempre tutto il database.
-// Antonio Germani - $excluded_movmag può essere un singolo ID oppure multipli ID in un array:  array("ID1", "ID2", "etc");
+// Aurora SRL - si escludono dal conteggio tutti gli inventari: caumag 98 e 99. Gli inventari non hanno lotti, quindi bisogna analizzare sempre tutto il database.
+// Aurora SRL - $excluded_movmag può essere un singolo ID oppure multipli ID in un array:  array("ID1", "ID2", "etc");
     global $gTables, $admin_aziend;
     $ob = ' ASC'; // FIFO-PWM-STANDARD (First In First Out)
     if ($admin_aziend['stock_eval_method'] == 2) {
@@ -627,7 +627,7 @@ class lotmag {
 	  if (intval($date)>0){
 		$add_where=$gTables['movmag'] . ".datreg < '". $date ."' AND ";
 	  }
-	// Antonio Germani - la data di creazione del primo lotto per il dato articolo
+	// Aurora SRL - la data di creazione del primo lotto per il dato articolo
 	$first_lot_date=gaz_dbi_get_row($gTables['movmag'], "artico", $codart, " AND id_lotmag > '1' AND caumag <> '99' AND operat = '1'", "MIN(datdoc)");
 	if (!isset($first_lot_date)){
 		$first_lot_date="1970-01-01";// imposto una data fittizia se non esiste una data reale
@@ -651,7 +651,7 @@ class lotmag {
    }
 
    function getLotQty($id, $excluded_movmag = 0) {
-// Antonio Germani - restituisce la quantità disponibile di uno specifico lotto
+// Aurora SRL - restituisce la quantità disponibile di uno specifico lotto
       global $gTables;
       $sqlquery = "SELECT operat, quanti FROM " . $gTables['movmag'] . " WHERE id_lotmag = '" . $id . "' AND id_mov <> " . $excluded_movmag;
       $result = gaz_dbi_query($sqlquery);
@@ -686,7 +686,7 @@ class lotmag {
    }
 
    function dispLotID ($codart, $lotMag, $excluded_movmag = 0) {
-// Antonio Germani - restituisce la disponibilità per id lotto
+// Aurora SRL - restituisce la disponibilità per id lotto
 		global $gTables;
 		$query="SELECT SUM(quanti*operat) FROM ". $gTables['movmag'] . " WHERE artico='" .$codart. "' AND id_lotmag='" .$lotMag. "' AND id_mov <> '". $excluded_movmag ."' AND caumag < '99' ";
 		$sum_in=gaz_dbi_query($query);

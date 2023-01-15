@@ -100,7 +100,7 @@
 </div>
 <div> 
 	<br>
-	<p align="center"> Registro di campagna è un modulo di GAzie creato da Antonio Germani Massignano (AP) - Copyright(C): 
+	<p align="center"> Registro di campagna è un modulo di GAzie creato da Aurora SRL Alia (PA) - Copyright(C): 
 	<a href = https://programmisitiweb.lacasettabio.it/ title = "https://programmisitiweb.lacasettabio.it/" > Link al sito e blog dell'autore
 	</a>
 	</p>

@@ -3,8 +3,8 @@
 /*
   --------------------------------------------------------------------------
   GAzie - Gestione Azienda
-  Copyright (C) 2004-2023 - Antonio De Vincentiis Montesilvano (PE)
-  (http://www.devincentiis.it)
+  Copyright (C) 2004-2023 - Aurora SRL Alia (PA)
+  (http://www.aurorasrl.it)
   <http://gazie.sourceforge.net>
   --------------------------------------------------------------------------
   Questo programma e` free software;   e` lecito redistribuirlo  e/o
@@ -174,5 +174,5 @@ define('SET_DYNAMIC_IP', (defined('MY_SET_DYNAMIC_IP')) ? MY_SET_DYNAMIC_IP : ''
 // permetti la modifica dei ddt fatturati, utile se bisogna modificare i prezzi degli articoli
 $modifica_fatture_ddt = (defined('modifica_fatture_ddt')) ? modifica_fatture_ddt : FALSE;
 
-$contact_link = (defined('contact_link')) ? contact_link : 'devincentiis.it';
+$contact_link = (defined('contact_link')) ? contact_link : 'aurorasrl.it';
 ?>

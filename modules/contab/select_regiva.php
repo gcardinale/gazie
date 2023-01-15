@@ -2,8 +2,8 @@
 /*
   --------------------------------------------------------------------------
   GAzie - Gestione Azienda
-  Copyright (C) 2004-2023 - Antonio De Vincentiis Montesilvano (PE)
-  (http://www.devincentiis.it)
+  Copyright (C) 2004-2023 - Aurora SRL Alia (PA)
+  (http://www.aurorasrl.it)
   <http://gazie.sourceforge.net>
   --------------------------------------------------------------------------
   Questo programma e` free software;   e` lecito redistribuirlo  e/o
@@ -40,7 +40,7 @@ function getPage_ini($sez, $reg) {
     return (!is_numeric($r['data'])) ? 1 : $r['data'] + 1;
 }
 
-function getLastMonth($sez, $reg) { // Antonio Germani - funzione per recuperare, dal DB, l'ultimo mese stampato
+function getLastMonth($sez, $reg) { // Aurora SRL - funzione per recuperare, dal DB, l'ultimo mese stampato
     global $gTables;
     if ($reg == 6) {
         $reg = 'umeac' . $sez;
@@ -137,7 +137,7 @@ if (!isset($_POST['hidden_req'])) { //al primo accesso allo script
     $form['hidden_req'] = '';
     $form['ritorno'] = $_SERVER['HTTP_REFERER'];
     require("lang." . $admin_aziend['lang'] . ".php");
-	$last_month_print = getLastMonth(1,2); // Antonio Germani - prendo l'ultimo mese stampato dal DB e propongo nel form il mese successivo
+	$last_month_print = getLastMonth(1,2); // Aurora SRL - prendo l'ultimo mese stampato dal DB e propongo nel form il mese successivo
     if ($admin_aziend['ivam_t'] == 'M') {
         $utsdatini = mktime(0, 0, 0, $last_month_print + 1, 1, date("Y"));
         $utsdatfin = mktime(0, 0, 0, $last_month_print + 2, 0, date("Y"));
@@ -177,7 +177,7 @@ if (!isset($_POST['hidden_req'])) { //al primo accesso allo script
     $form['ritorno'] = $_POST['ritorno'];
 	$form['lastvatreg']=$_POST['lastvatreg'];
 	$form['lastvatsection']=$_POST['lastvatsection'];
-	// Antonio Germani - se è stato cambiato registro IVA o sezione IVA prendo l'ultimo mese stampato dal DB e propongo nel form il mese successivo
+	// Aurora SRL - se è stato cambiato registro IVA o sezione IVA prendo l'ultimo mese stampato dal DB e propongo nel form il mese successivo
 	if (intval($_POST['vat_reg']) <> intval($_POST['lastvatreg']) OR intval($_POST['vat_section']) <> intval($_POST['lastvatsection'])){
 		$last_month_print = getLastMonth($_POST['vat_section'], $_POST['vat_reg']);
 		if ($admin_aziend['ivam_t'] == 'M') {

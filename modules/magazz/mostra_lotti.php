@@ -2,8 +2,8 @@
 /*
   --------------------------------------------------------------------------
   GAzie - Gestione Azienda
-  Copyright (C) 2004-2023 - Antonio De Vincentiis Montesilvano (PE)
-  (http://www.devincentiis.it)
+  Copyright (C) 2004-2023 - Aurora SRL Alia (PA)
+  (http://www.aurorasrl.it)
   <http://gazie.sourceforge.net>
   --------------------------------------------------------------------------
   Questo programma e` free software;   e` lecito redistribuirlo  e/o
@@ -21,7 +21,7 @@
   scriva   alla   Free  Software Foundation, 51 Franklin Street,
   Fifth Floor Boston, MA 02110-1335 USA Stati Uniti.
   --------------------------------------------------------------------------
->>>>>> Antonio Germani -- MOSTRA Lotti  <<<<<<
+>>>>>> Aurora SRL -- MOSTRA Lotti  <<<<<<
  */
 require("../../library/include/datlib.inc.php");
 require("../../modules/vendit/lib.function.php");
@@ -33,14 +33,14 @@ $lm -> getAvailableLots($codice,0,"",1);
 $date = date("Y-m-d");
 $artico = gaz_dbi_get_row($gTables['artico'], "codice", $codice);
 
-// Antonio Germani - vedo se ci sono stati degli inventari fino alla data
+// Aurora SRL - vedo se ci sono stati degli inventari fino alla data
 //$rs_last_inventory = gaz_dbi_dyn_query("*", $gTables['movmag'], "artico = '$codice' AND caumag = 99 AND (datreg <= '" . $date . "')", "datreg DESC, id_mov DESC");
-// Antonio Germani -gli inventari, adesso, vengono tolti direttamente nella function getAvailableLots
+// Aurora SRL -gli inventari, adesso, vengono tolti direttamente nella function getAvailableLots
 
-// Antonio Germani - la data di creazione del primo lotto per il dato articolo
+// Aurora SRL - la data di creazione del primo lotto per il dato articolo
 $first_lot_date=gaz_dbi_get_row($gTables['movmag'], "artico", $codice, " AND id_lotmag > '1' AND caumag <> '99' AND operat = '1'", "MIN(datdoc)");
 if (isset($first_lot_date)){
-// Antonio Germani - controllo se ci sono articoli con movimenti di magazzino orfani del lotto
+// Aurora SRL - controllo se ci sono articoli con movimenti di magazzino orfani del lotto
 $where= $gTables['movmag'] . ".artico = '" . $codice. "' AND ". $gTables['movmag'] . ".id_lotmag < '1' AND ". $gTables['movmag'] . ".caumag <> '99' AND datdoc >= '". $first_lot_date ."'";
 $resorf = gaz_dbi_dyn_query($gTables['movmag'] . ".artico,".
  $gTables['movmag'] . ".quanti,".
@@ -109,11 +109,11 @@ if (isset($_POST['close'])){
 	if (count($lm->available) > 0) {
 		$count=array();
         foreach ($lm->available as $v_lm) {
-			// Antonio Germani - vedo quanti sono entrati
+			// Aurora SRL - vedo quanti sono entrati
 				$query="SELECT SUM(quanti) FROM ". $gTables['movmag'] . " WHERE artico='" .$codice. "' AND id_lotmag='" .$v_lm['id']. "' AND operat='1' AND caumag < '99'";
 				$sum_in=gaz_dbi_query($query);
 				$in =gaz_dbi_fetch_array($sum_in);
-			// Antonio Germani - vedo quanti sono usciti
+			// Aurora SRL - vedo quanti sono usciti
 				$query="SELECT SUM(quanti) FROM ". $gTables['movmag'] . " WHERE artico='" .$codice. "' AND id_lotmag='" .$v_lm['id']. "' AND operat='-1' AND caumag < '99'";
 				$sum_out=gaz_dbi_query($query);
 				$out =gaz_dbi_fetch_array($sum_out);
@@ -132,7 +132,7 @@ if (isset($_POST['close'])){
 			}
 			$tot+=$v_lm['rest'];
 			$n=0;
-			/* Antonio Germani - gli inventari, adesso, vengono tolti direttamente nella function getAvailableLots
+			/* Aurora SRL - gli inventari, adesso, vengono tolti direttamente nella function getAvailableLots
 			foreach ($rs_last_inventory as $idlot){ // se ci sono stati degli inventari che si riferiscono a quello specifico lotto, tolgo la quantità di ciascuno tranne l'ultimo fatto
 				if (intval($n)>0){
 					if ($idlot['id_lotmag']==$v_lm['id']){

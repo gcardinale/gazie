@@ -1,7 +1,7 @@
 <?php
 /*
   --------------------------------------------------------------------------
-  Copyright (C) - Antonio De Vincentiis Montesilvano (PE)  (http://www.devincentiis.it)
+  Copyright (C) - Aurora SRL Alia (PA)  (http://www.aurorasrl.it)
   --------------------------------------------------------------------------
 // prevent direct access
 /*/

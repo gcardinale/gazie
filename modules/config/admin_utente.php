@@ -2,8 +2,8 @@
 /*
 --------------------------------------------------------------------------
 GAzie - Gestione Azienda
-Copyright (C) 2004-2023 - Antonio De Vincentiis Montesilvano (PE)
-(http://www.devincentiis.it)
+Copyright (C) 2004-2023 - Aurora SRL Alia (PA)
+(http://www.aurorasrl.it)
 <http://gazie.sourceforge.net>
 --------------------------------------------------------------------------
 Questo programma e` free software;   e` lecito redistribuirlo  e/o
@@ -304,7 +304,7 @@ if (isset($_POST['Submit'])) {
       $prepared_key = openssl_pbkdf2($form["user_password_new"].$form["user_name"], AES_KEY_SALT, 16, 1000, "sha256");
       $form["aes_key"] = base64_encode(openssl_encrypt($_SESSION['aes_key'],"AES-128-CBC",$prepared_key,OPENSSL_RAW_DATA, AES_KEY_IV));
 
-			// Antonio Germani - Creo anche una nuova anagrafica nelle anagrafiche comuni
+			// Aurora SRL - Creo anche una nuova anagrafica nelle anagrafiche comuni
 			$form['ragso1']=$form['user_lastname'];
 			$form['ragso2']=$form['user_firstname'];
 			$form['legrap_pf_nome']="";

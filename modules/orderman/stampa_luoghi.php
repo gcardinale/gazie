@@ -3,8 +3,8 @@
 /*
   --------------------------------------------------------------------------
   GAzie - Gestione Azienda
-  Copyright (C) 2004-2023 - Antonio De Vincentiis Montesilvano (PE)
-  (http://www.devincentiis.it)
+  Copyright (C) 2004-2023 - Aurora SRL Alia (PA)
+  (http://www.aurorasrl.it)
   <http://gazie.sourceforge.net>
   --------------------------------------------------------------------------
   Questo programma e` free software;   e` lecito redistribuirlo  e/o
@@ -45,10 +45,10 @@ $title = array('luogo_data'=>$luogo_data,
                              array('lun' => 80,'nam'=>'Immagine')                             
                             )
               );
-// Antonio Germani carico la tabella campi
+// Aurora SRL carico la tabella campi
 $res = gaz_dbi_dyn_query ('*', $gTables['campi']);
 // fine carico tabella campi			
-	// Antonio Germani Inserisco superficie e coltura
+	// Aurora SRL Inserisco superficie e coltura
 $pdf = new Report_template('L','mm','A4',true,'UTF-8',false,true);
 $pdf->setVars($admin_aziend,$title);
 $pdf->SetTopMargin(42);

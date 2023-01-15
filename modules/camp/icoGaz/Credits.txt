@@ -1,9 +1,9 @@
-These icons css classes are created by Antonio Germani
+These icons css classes are created by Aurora SRL
 You can use it for free but the author name and reference must be left untouched 
 
-  Copyright (C) 2018-2022 - Antonio Germani, Massignano (AP)
-	  https://www.lacasettabio.it 
-	  https://www.programmisitiweb.lacasettabio.it
+  Copyright (C) 2018-2022 - Aurora SRL, Alia (PA)
+	  http://www.aurorasrl.it 
+	  https://www.aurorasrl.it
 	  --------------------------------------------------------------------------
 	  Questo programma e` free software;   e` lecito redistribuirlo  e/o
 	  modificarlo secondo i  termini della Licenza Pubblica Generica GNU
@@ -23,7 +23,7 @@ You can use it for free but the author name and reference must be left untouched
 	  # free to use, Author name and references must be left untouched  #
 	  --------------------------------------------------------------------------	  
 
-All icons used are free to use and come from uxwing.com. They have been modified and colored by Antonio Germani
+All icons used are free to use and come from uxwing.com. They have been modified and colored by Aurora SRL
 -------------------
 Icons come from uxwing.com , https://uxwing.com/license/
 Permitted

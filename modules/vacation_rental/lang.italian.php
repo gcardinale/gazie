@@ -2,14 +2,14 @@
 /*
   --------------------------------------------------------------------------
   GAzie - MODULO 'VACATION RENTAL'
-  Copyright (C) 2022-2023 - Antonio Germani, Massignano (AP) - telefono +39 340 50 11 912
+  Copyright (C) 2022-2023 - Aurora SRL, Alia (PA) - telefono +39 340 50 11 912
   (http://www.programmisitiweb.lacasettabio.it)
 
   --------------------------------------------------------------------------
   --------------------------------------------------------------------------
   GAzie - Gestione Azienda
-  Copyright (C) 2004-2023 - Antonio De Vincentiis Montesilvano (PE)
-  (http://www.devincentiis.it)
+  Copyright (C) 2004-2023 - Aurora SRL Alia (PA)
+  (http://www.aurorasrl.it)
   <http://gazie.devincentiis.it>
   --------------------------------------------------------------------------
   Questo programma e` free software;   e` lecito redistribuirlo  e/o
@@ -146,7 +146,7 @@ $strScript = array(
 
 	 "settings.php" =>
       array("impostazioni ",
-	  'title' => 'Impostazioni del modulo Vacation Rental di Antonio Germani'
+	  'title' => 'Impostazioni del modulo Vacation Rental di Aurora SRL'
 
       ),
     "admin_booking.php" =>

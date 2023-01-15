@@ -2,14 +2,14 @@
 /*
 	  --------------------------------------------------------------------------
 	  GAzie - Gestione Azienda
-	  Copyright (C) 2004-2023 - Antonio De Vincentiis Montesilvano (PE)
-	  (http://www.devincentiis.it)
+	  Copyright (C) 2004-2023 - Aurora SRL Alia (PA)
+	  (http://www.aurorasrl.it)
 	  <http://gazie.sourceforge.net>
 	  --------------------------------------------------------------------------
-	  REGISTRO DI CAMPAGNA è un modulo creato per GAzie da Antonio Germani, Massignano AP
-	  Copyright (C) 2018-2021 - Antonio Germani, Massignano (AP)
-	  https://www.lacasettabio.it
-	  https://www.programmisitiweb.lacasettabio.it
+	  REGISTRO DI CAMPAGNA è un modulo creato per GAzie da Aurora SRL, Alia PA
+	  Copyright (C) 2018-2021 - Aurora SRL, Alia (PA)
+	  http://www.aurorasrl.it
+	  https://www.aurorasrl.it
 	  --------------------------------------------------------------------------
 	  Questo programma e` free software;   e` lecito redistribuirlo  e/o
 	  modificarlo secondo i  termini della Licenza Pubblica Generica GNU
@@ -53,7 +53,7 @@ if (isset($_POST['Update']) || isset($_GET['Update'])) {
     $toDo = 'insert';
 }
 
-// Antonio Germani questo serve per la nuova ricerca fornitore
+// Aurora SRL questo serve per la nuova ricerca fornitore
 if (isset($_POST['fornitore'])){
 		$form['fornitore'] = $_POST['fornitore'];
 		$form['id_anagra'] = intval ($form['fornitore']);
@@ -193,7 +193,7 @@ if (isset($_POST['Insert']) || isset($_POST['Update'])) {   //se non e' il primo
             // controllo che il file non sia piu' grande di circa 64kb
             if ($_FILES['userfile']['size'] > 65530){
 				 //$msg['err'][] = 'filsiz';
-				 //Antonio Germani anziche segnalare errore ridimensiono l'immagine
+				 //Aurora SRL anziche segnalare errore ridimensiono l'immagine
 							$maxDim = 80;
 							$file_name = $_FILES['userfile']['tmp_name'];
 							list($width, $height, $type, $attr) = getimagesize( $file_name );
@@ -243,7 +243,7 @@ if (isset($_POST['Insert']) || isset($_POST['Update'])) {   //se non e' il primo
 
 			$msg['err'][]= 'unimis5';
 		}
-		 //Antonio Germani controllo che sia stata inserita una categoria merceologica
+		 //Aurora SRL controllo che sia stata inserita una categoria merceologica
 		if (empty($form["catmer"])) {
             $msg['err'][] = 'catmer';
         }
@@ -572,7 +572,7 @@ if ($form['conferma']<>"Confermo deroga ".$form['nomefito'] AND $presente==1 AND
         });
     });
 
-<!-- Antonio Germani inizio script autocompletamento dalla tabella mysql fitofarmaci	-->
+<!-- Aurora SRL inizio script autocompletamento dalla tabella mysql fitofarmaci	-->
 	$(document).ready(function(){
 	//Autocomplete search using PHP, MySQLi, Ajax and jQuery
 	//generate suggestion on keyup
@@ -779,7 +779,7 @@ select: function(event, ui) {
 									<div class="row">
 										<h4>Aggiungi una nuova dose massima specifica:</h4>
 									</div>
-									<!-- Antonio Germani inizio script autocompletamento dalla tabella mysql camp_coltura	-->
+									<!-- Aurora SRL inizio script autocompletamento dalla tabella mysql camp_coltura	-->
 									  <script>
 										$(document).ready(function() {
 										$("input#autocomplete2").autocomplete({
@@ -812,7 +812,7 @@ select: function(event, ui) {
 										<!-- per funzionare autocomplete, id dell'input deve essere autocomplete2 -->
 
 										<!-- inizio inserisci avversita  -->
-										<!-- Antonio Germani inizio script autocompletamento dalla tabella mysql camp_avversita	-->
+										<!-- Aurora SRL inizio script autocompletamento dalla tabella mysql camp_avversita	-->
 										  <script>
 											$(document).ready(function() {
 											$("input#autocomplete3").autocomplete({
@@ -984,7 +984,7 @@ select: function(event, ui) {
 								   </div>
 							   </div>
 							</div><!-- chiude row  -->
-							<!-- Antonio Germani  il TEMPO DI SOSPENSIONE -->
+							<!-- Aurora SRL  il TEMPO DI SOSPENSIONE -->
 							<div class="row">
 								<div class="col-md-12">
 									<div class="form-group">
@@ -993,7 +993,7 @@ select: function(event, ui) {
 									</div>
 								</div>
 							</div><!-- chiude row  -->
-							<!-- Antonio Germani  la DOSE AD ETTARO  -->
+							<!-- Aurora SRL  la DOSE AD ETTARO  -->
 							<div class="row">
 								<div class="col-md-12">
 									<div class="form-group">
@@ -1002,7 +1002,7 @@ select: function(event, ui) {
 									</div>
 								</div>
 							</div><!-- chiude row  -->
-							<!-- Antonio Germani  il RAME METALLO e N P K -->
+							<!-- Aurora SRL  il RAME METALLO e N P K -->
 							<div class="row">
 								<div class="col-md-12">
 									<div class="form-group">

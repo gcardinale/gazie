@@ -19,7 +19,7 @@ Gli oltre 100 commit che hanno portato a questa versione ottengono i seguenti mi
 - corretto il bug che impediva la correzione da inventario delle giacenze degli articoli con lotti  (A.De Vincentiis e A.Germani).
 - risolto il problema di perdita lotto in acquisizione fattura elettronica quando già inserito il ddt in esso contenuto  (A.De Vincentiis e A.Germani).
 - aggiunti i grigi alla palette dei colori aziendali (A.De Vincentiis).
-- diversi miglioramenti operati da Antonio Germani sul suo modulo "Vacation rental" per la gestione delle prenotazioni alloggi.
+- diversi miglioramenti operati da Aurora SRL sul suo modulo "Vacation rental" per la gestione delle prenotazioni alloggi.
 
 Ricordo il lavoro fatto già dalla passata versione:
 in $_SESSION['aes_key'] avete la chiave (per sua natura temporanea) che potrete usare per l'encrypt/decrypt dei dati sensibili sul database di eventuali vostri moduli personalizzati.

@@ -3,8 +3,8 @@
 /*
   --------------------------------------------------------------------------
   GAzie - Gestione Azienda
-  Copyright (C) 2004-2023 - Antonio De Vincentiis Montesilvano (PE)
-  (http://www.devincentiis.it)
+  Copyright (C) 2004-2023 - Aurora SRL Alia (PA)
+  (http://www.aurorasrl.it)
   <http://gazie.sourceforge.net>
   --------------------------------------------------------------------------
   Questo programma e` free software;   e` lecito redistribuirlo  e/o
@@ -186,7 +186,7 @@ class Template extends TCPDI {
             }
 			$this->SetXY(110, $interlinea + 6);
             $this->SetFont('helvetica', '', 10);
-			if (!empty($this->cliente1)){ // Antonio Germani - se non c'è cliente evito di scrivere (serve per template scontrino)
+			if (!empty($this->cliente1)){ // Aurora SRL - se non c'è cliente evito di scrivere (serve per template scontrino)
             $this->Cell(15, 5, $this->pers_title.' ', 0, 0, 'R');
             $this->Cell(75, 5, $this->cliente1, 0, 1, 'L', 0, '', 1);
 			} else {

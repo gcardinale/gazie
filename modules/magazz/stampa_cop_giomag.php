@@ -2,8 +2,8 @@
 /*
  --------------------------------------------------------------------------
                             GAzie - Gestione Azienda
-    Copyright (C) 2004-2023 - Antonio De Vincentiis Montesilvano (PE)
-         (http://www.devincentiis.it)
+    Copyright (C) 2004-2023 - Aurora SRL Alia (PA)
+         (http://www.aurorasrl.it)
            <http://gazie.sourceforge.net>
  --------------------------------------------------------------------------
     Questo programma e` free software;   e` lecito redistribuirlo  e/o
@@ -23,7 +23,7 @@
  --------------------------------------------------------------------------
 */
 
-// Antonio Germani    - STAMPA COPERTINA ANNUALE QUADERNO DI CAMPAGNA -
+// Aurora SRL    - STAMPA COPERTINA ANNUALE QUADERNO DI CAMPAGNA -
 
 require("../../library/include/datlib.inc.php");
 require_once('../../library/tcpdf/tcpdf.php');

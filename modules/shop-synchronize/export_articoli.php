@@ -2,14 +2,14 @@
 /*
 	  --------------------------------------------------------------------------
 	  GAzie - Gestione Azienda
-	  Copyright (C) 2004-2023 - Antonio De Vincentiis Montesilvano (PE)
-	  (http://www.devincentiis.it)
+	  Copyright (C) 2004-2023 - Aurora SRL Alia (PA)
+	  (http://www.aurorasrl.it)
 	  <http://gazie.sourceforge.net>
 	  --------------------------------------------------------------------------
-	  SHOP SYNCHRONIZE è un modulo creato per GAzie da Antonio Germani, Massignano AP
-	  Copyright (C) 2018-2021 - Antonio Germani, Massignano (AP)
-	  https://www.lacasettabio.it
-	  https://www.programmisitiweb.lacasettabio.it
+	  SHOP SYNCHRONIZE è un modulo creato per GAzie da Aurora SRL, Alia PA
+	  Copyright (C) 2018-2021 - Aurora SRL, Alia (PA)
+	  http://www.aurorasrl.it
+	  https://www.aurorasrl.it
 	  --------------------------------------------------------------------------
 	  Questo programma e` free software;   e` lecito redistribuirlo  e/o
 	  modificarlo secondo i  termini della Licenza Pubblica Generica GNU
@@ -29,7 +29,7 @@
 	  # free to use, Author name and references must be left untouched  #
 	  --------------------------------------------------------------------------
 */
-/* Antonio Germani - ESPORTAZIONE MANUALE (update e insert) DEGLI ARTICOLI DA GAZIE ALL'E-COMMERCE -  GLI ARTICOLI già esistenti NELL'E-COMMERCE saranno aggiornati ALTRIMENTI, se richiesto con l'apposita spunta verranno iseriti solo se articoli semplici, se non richiesto saranno ignorati. Varianti e gruppi/parent NON VERRANNO CONSIDERATI */
+/* Aurora SRL - ESPORTAZIONE MANUALE (update e insert) DEGLI ARTICOLI DA GAZIE ALL'E-COMMERCE -  GLI ARTICOLI già esistenti NELL'E-COMMERCE saranno aggiornati ALTRIMENTI, se richiesto con l'apposita spunta verranno iseriti solo se articoli semplici, se non richiesto saranno ignorati. Varianti e gruppi/parent NON VERRANNO CONSIDERATI */
 
 require("../../library/include/datlib.inc.php");
 require ("../../modules/magazz/lib.function.php");
@@ -168,7 +168,7 @@ if (isset($_POST['conferma'])) { // se confermato
 
 		// creo il file xml
 	$xml_output = '<?xml version="1.0" encoding="UTF-8"?>
-	<GAzieDocuments AppVersion="1" Creator="Antonio Germani Copyright" CreatorUrl="https://www.programmisitiweb.lacasettabio.it">';
+	<GAzieDocuments AppVersion="1" Creator="Aurora SRL Copyright" CreatorUrl="https://www.aurorasrl.it">';
 	$xml_output .= "\n<Products>\n";
 	for ($ord=0 ; $ord<=$_POST['num_products']; $ord++){// ciclo gli articoli e creo il file xml
 		if (isset($_POST['download'.$ord])){ // se selezionato
@@ -280,7 +280,7 @@ if (isset($_POST['conferma'])) { // se confermato
 	$categories = gaz_dbi_query ("SELECT * FROM ".$gTables['catmer']." WHERE top > '0' ORDER BY codice");
 	// creo il file xml
 	$xml_output = '<?xml version="1.0" encoding="UTF-8"?>
-	<GAzieDocuments AppVersion="1" Creator="Antonio Germani Copyright" CreatorUrl="https://www.programmisitiweb.lacasettabio.it">';
+	<GAzieDocuments AppVersion="1" Creator="Aurora SRL Copyright" CreatorUrl="https://www.aurorasrl.it">';
 	$xml_output .= "\n<Categories>\n";
 	while ($cat = gaz_dbi_fetch_array($categories)){ // le ciclo
 		$xml_output .= "\t<Category>\n";

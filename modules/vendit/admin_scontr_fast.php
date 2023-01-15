@@ -3,8 +3,8 @@
 /*
   --------------------------------------------------------------------------
   GAzie - Gestione Azienda
-  Copyright (C) 2004-2023 - Antonio De Vincentiis Montesilvano (PE)
-  (http://www.devincentiis.it)
+  Copyright (C) 2004-2023 - Aurora SRL Alia (PA)
+  (http://www.aurorasrl.it)
   <http://gazie.sourceforge.net>
   --------------------------------------------------------------------------
   Questo programma e` free software;   e` lecito redistribuirlo  e/o
@@ -808,7 +808,7 @@ if (!(count($msg['err']) > 0 || count($msg['war']) > 0)) { // ho un errore non s
 ?>
     });
 </script>
-<!-- Antonio Germani - funzione per barcode che rileva il tasto CR 13 o enter che viene inviato dalla pistola scanner -->
+<!-- Aurora SRL - funzione per barcode che rileva il tasto CR 13 o enter che viene inviato dalla pistola scanner -->
 	<script type="text/javascript">
     function submitOnEnter(inputElement, event) {
         if (event.keyCode == 13) { // No need to do browser specific checks. It is always 13.
@@ -1194,7 +1194,7 @@ maniglia.form.submit();
                         </div>
                     </div>
 
-					<!-- Antonio Germani - input ricerca con pistola lettore codice a barre -->
+					<!-- Aurora SRL - input ricerca con pistola lettore codice a barre -->
 					<?php
 					if ($form['ok_barcode']!="ok"){
 						?>
@@ -1237,7 +1237,7 @@ maniglia.form.submit();
 						}
 					}
 					?>
-					<!-- Antonio Germani - fine ricerca con pistola lettore codice a barre -->
+					<!-- Aurora SRL - fine ricerca con pistola lettore codice a barre -->
 
                     <div class="col-sm-4 col-md-2 col-lg-2">
                         <div class="form-group">

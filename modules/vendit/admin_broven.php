@@ -2,8 +2,8 @@
 /*
   --------------------------------------------------------------------------
   GAzie - Gestione Azienda
-  Copyright (C) 2004-2023 - Antonio De Vincentiis Montesilvano (PE)
-  (http://www.devincentiis.it)
+  Copyright (C) 2004-2023 - Aurora SRL Alia (PA)
+  (http://www.aurorasrl.it)
   <http://gazie.sourceforge.net>
   --------------------------------------------------------------------------
   Questo programma e` free software;   e` lecito redistribuirlo  e/o
@@ -329,7 +329,7 @@ if ((isset($_POST['Insert'])) or ( isset($_POST['Update']))) {   //se non e' il 
         $utstra = mktime(0, 0, 0, $form['mestra'], $form['giotra'], $form['anntra']);
         if (!checkdate($form['mestra'], $form['giotra'], $form['anntra']))
             $msg .= "37+";
-        /* Antonio Germani - la data di inizio trasporto non può bloccare un ordine da cliente in quanto non è una vendita
+        /* Aurora SRL - la data di inizio trasporto non può bloccare un ordine da cliente in quanto non è una vendita
         if ($utstra < $utsemi) {
             // $msg .= "38+";
         }
@@ -384,7 +384,7 @@ if ((isset($_POST['Insert'])) or ( isset($_POST['Update']))) {   //se non e' il 
                 $i = 0;$syncarticols=array();
                 $count = count($form['rows']) - 1;
                 while ($val_old_row = gaz_dbi_fetch_array($old_rows)) {
-                  array_push($syncarticols,$val_old_row['codart']);// Antonio Germani - aggiungo il codice articolo all'array per la sincronizzazione e-commerce
+                  array_push($syncarticols,$val_old_row['codart']);// Aurora SRL - aggiungo il codice articolo all'array per la sincronizzazione e-commerce
                     if ($i <= $count) { //se il vecchio rigo e' ancora presente nel nuovo lo modifico
                         $form['rows'][$i]['id_tes'] = $form['id_tes'];
                         $codice = array('id_rig', $val_old_row['id_rig']);
@@ -426,7 +426,7 @@ if ((isset($_POST['Insert'])) or ( isset($_POST['Update']))) {   //se non e' il 
                 }
                 //qualora i nuovi rows fossero di pi� dei vecchi inserisco l'eccedenza
                 for ($i = $i; $i <= $count; $i++) {
-                    array_push($syncarticols,$form['rows'][$i]['codart']);// Antonio Germani - aggiungo il codice articolo all'array per la sincronizzazione e-commerce
+                    array_push($syncarticols,$form['rows'][$i]['codart']);// Aurora SRL - aggiungo il codice articolo all'array per la sincronizzazione e-commerce
                     $form['rows'][$i]['id_tes'] = $form['id_tes'];
                     $last_rigbro_id = rigbroInsert($form['rows'][$i]);
                     if (!empty($form['rows'][$i]['extdoc'])) {

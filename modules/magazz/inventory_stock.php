@@ -2,8 +2,8 @@
 /*
   --------------------------------------------------------------------------
   GAzie - Gestione Azienda
-  Copyright (C) 2004-2023 - Antonio De Vincentiis Montesilvano (PE)
-  (http://www.devincentiis.it)
+  Copyright (C) 2004-2023 - Aurora SRL Alia (PA)
+  (http://www.aurorasrl.it)
   <http://gazie.sourceforge.net>
   --------------------------------------------------------------------------
   Questo programma e` free software;   e` lecito redistribuirlo  e/o
@@ -50,7 +50,7 @@ if (!isset($_POST['ritorno'])) { //al primo accesso allo script
         $mv = $gForm->getStockValue(false, addslashes($r['codice']), $date, null, $admin_aziend['decimal_price']);
         $magval = array_pop($mv);
         $magval=(is_numeric($magval))?['q_g'=>0,'v_g'=>0,'v'=>0]:$magval;
-        if (isset($magval['q_g']) && round($magval['q_g'],6) == "-0"){ // Antonio Germani - se si crea erroneamente un numero esponenziale negativo forzo la quantità a zero
+        if (isset($magval['q_g']) && round($magval['q_g'],6) == "-0"){ // Aurora SRL - se si crea erroneamente un numero esponenziale negativo forzo la quantità a zero
 					$magval['q_g']=0;
 				}
         $form['a'][$r['codice']]['i_d'] = $r['descri'];
@@ -121,7 +121,7 @@ if (!isset($_POST['ritorno'])) { //al primo accesso allo script
           $mv = $gForm->getStockValue(false, addslashes($r['codice']), $date, null, $admin_aziend['decimal_price']);
           $magval = array_pop($mv);
           $magval=(is_numeric($magval))?['q_g'=>0,'v_g'=>0,'v'=>0]:$magval;
-          if (isset($magval['q_g']) && round($magval['q_g'],6) == "-0"){ // Antonio Germani - se si crea erroneamente un numero esponenziale negativo forzo la quantità a zero
+          if (isset($magval['q_g']) && round($magval['q_g'],6) == "-0"){ // Aurora SRL - se si crea erroneamente un numero esponenziale negativo forzo la quantità a zero
             $magval['q_g']=0;
           }
           $form['a'][$r['codice']]['i_d'] = $r['descri'];
@@ -178,7 +178,7 @@ if (!isset($_POST['ritorno'])) { //al primo accesso allo script
                 $msg .= $ka . '-1+';
               }
             }
-            // Antonio Germani - controllo che non sia già stato fatto l'inventario nello stesso giorno per lo stesso articolo (altrimenti non funziona bene getStockValue con articoli con lotti)
+            // Aurora SRL - controllo che non sia già stato fatto l'inventario nello stesso giorno per lo stesso articolo (altrimenti non funziona bene getStockValue con articoli con lotti)
             $checkinv="NULL";
             $checkinv = gaz_dbi_get_row($gTables['movmag'], "artico", $ka, " AND caumag = '99' AND datdoc = '$date'");
             if ($checkinv) {

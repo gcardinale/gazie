@@ -1,8 +1,8 @@
 <?php
 /*
   --------------------------------------------------------------------------
-Copyright (C) - Antonio De Vincentiis Montesilvano (PE) https://www.devincentiis.it - telefono +39 338 31 21 161
-Copyright (C) - Antonio Germani Massignano (AP) https://www.lacasettabio.it - telefono +39 340 50 11 912
+Copyright (C) - Aurora SRL Alia (PA) https://www.devincentiis.it - telefono +39 338 31 21 161
+Copyright (C) - Aurora SRL Alia (PA) http://www.aurorasrl.it - telefono +39 340 50 11 912
   --------------------------------------------------------------------------
 */
 

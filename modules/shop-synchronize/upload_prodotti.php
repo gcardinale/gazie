@@ -2,14 +2,14 @@
 /*
 	  --------------------------------------------------------------------------
 	  GAzie - Gestione Azienda
-	  Copyright (C) 2004-2023 - Antonio De Vincentiis Montesilvano (PE)
-	  (http://www.devincentiis.it)
+	  Copyright (C) 2004-2023 - Aurora SRL Alia (PA)
+	  (http://www.aurorasrl.it)
 	  <http://gazie.sourceforge.net>
 	  --------------------------------------------------------------------------
-	  SHOP SYNCHRONIZE è un modulo creato per GAzie da Antonio Germani, Massignano AP
-	  Copyright (C) 2019-2021 - Antonio Germani, Massignano (AP)
-	  https://www.lacasettabio.it
-	  https://www.programmisitiweb.lacasettabio.it
+	  SHOP SYNCHRONIZE è un modulo creato per GAzie da Aurora SRL, Alia PA
+	  Copyright (C) 2019-2021 - Aurora SRL, Alia (PA)
+	  http://www.aurorasrl.it
+	  https://www.aurorasrl.it
 	  --------------------------------------------------------------------------
 	  Questo programma e` free software;   e` lecito redistribuirlo  e/o
 	  modificarlo secondo i  termini della Licenza Pubblica Generica GNU
@@ -131,7 +131,7 @@ if (gaz_dbi_get_row($gTables['company_config'], 'var', 'Sftp')['val']=="SI"){
 
 // creo il file xml
 $xml_output = '<?xml version="1.0" encoding="ISO-8859-1"?>
-<GAzieDocuments AppVersion="1" Creator="Antonio Germani 2018-2019" CreatorUrl="https://www.lacasettabio.it">';
+<GAzieDocuments AppVersion="1" Creator="Aurora SRL 2018-2019" CreatorUrl="http://www.aurorasrl.it">';
 $xml_output .= "\n<Products>\n";
 // carico gli articoli e creo il file xml con quelli che hanno un ID e-commerce
 $artico = gaz_dbi_query ('SELECT codice, barcode, ref_ecommerce_id_product, id_artico_group FROM '.$gTables['artico'].' WHERE web_public = \'1\' and good_or_service <> \'1\' ORDER BY codice');

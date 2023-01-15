@@ -3,8 +3,8 @@
 /*
   --------------------------------------------------------------------------
   GAzie - Gestione Azienda
-  Copyright (C) 2004-2023 - Antonio De Vincentiis Montesilvano (PE)
-  (http://www.devincentiis.it)
+  Copyright (C) 2004-2023 - Aurora SRL Alia (PA)
+  (http://www.aurorasrl.it)
   <http://gazie.sourceforge.net>
   --------------------------------------------------------------------------
   Questo programma e` free software;   e` lecito redistribuirlo  e/o
@@ -172,7 +172,7 @@ if (sizeof($scdl->Entries) > 0) {
     }
     $pdf->SetFillColor(hexdec(substr($admin_aziend['colore'], 0, 2)), hexdec(substr($admin_aziend['colore'], 2, 2)), hexdec(substr($admin_aziend['colore'], 4, 2)));
     /* ENRICO FEDELE */
-    /* Antonio Germani - Stampo una riga per separare leggermente i totali e mettere la colonna saldo */
+    /* Aurora SRL - Stampo una riga per separare leggermente i totali e mettere la colonna saldo */
 	/* Le successive righe saranno in grassetto italico "BI" */
     $pdf->SetFont('helvetica', 'BI', 6);
 	$pdf->Cell(45, 4, '', 0, 0, 'C',false);
@@ -180,13 +180,13 @@ if (sizeof($scdl->Entries) > 0) {
 	$pdf->Cell(13, 4, 'SALDO', 1, 1, 'C',true);
 
     // Aggiunta la percentuale dell'avere rispetto al totale dare+avere
-    // Antonio Germani, non so a cosa possa servire ma ce la lascio spostandola ad inizio riga. Al suo posto mi sembra più corretto mettere il saldo che non c'era proprio.
+    // Aurora SRL, non so a cosa possa servire ma ce la lascio spostandola ad inizio riga. Al suo posto mi sembra più corretto mettere il saldo che non c'era proprio.
 	$pdf->Cell(10, 4, gaz_format_number(100 * $tot_avere / ($tot_dare + $tot_avere)) . " %", 'LBT', 0, 'L', false);
 
     $pdf->Cell(133, 4, 'TOTALI', 1, 0, 'R', false);
     $pdf->Cell(15, 4, gaz_format_number($tot_dare), 1, 0, 'R', false);
     $pdf->Cell(15, 4, gaz_format_number($tot_avere), 1, 0, 'R', false);
-    // Antonio Germani - Stampo il saldo
+    // Aurora SRL - Stampo il saldo
     $pdf->Cell(13, 4, gaz_format_number($saldo), 1, 1, 'C', true);
     /* ENRICO FEDELE */
 }

@@ -2,14 +2,14 @@
 /*
 	  --------------------------------------------------------------------------
 	  GAzie - Gestione Azienda
-	  Copyright (C) 2004-2023 - Antonio De Vincentiis Montesilvano (PE)
-	  (http://www.devincentiis.it)
+	  Copyright (C) 2004-2023 - Aurora SRL Alia (PA)
+	  (http://www.aurorasrl.it)
 	  <http://gazie.sourceforge.net>
 	  --------------------------------------------------------------------------
-	  REGISTRO DI CAMPAGNA è un modulo creato per GAzie da Antonio Germani, Massignano AP
-	  Copyright (C) 2018-2021 - Antonio Germani, Massignano (AP)
-	  https://www.lacasettabio.it
-	  https://www.programmisitiweb.lacasettabio.it
+	  REGISTRO DI CAMPAGNA è un modulo creato per GAzie da Aurora SRL, Alia PA
+	  Copyright (C) 2018-2021 - Aurora SRL, Alia (PA)
+	  http://www.aurorasrl.it
+	  https://www.aurorasrl.it
 	  --------------------------------------------------------------------------
 	  Questo programma e` free software;   e` lecito redistribuirlo  e/o
 	  modificarlo secondo i  termini della Licenza Pubblica Generica GNU
@@ -116,7 +116,7 @@ foreach ($prevfiles as $files){ // se nella stessa giornata sono stati creati al
 $progr++;
 
 
-if (!isset($_POST['ritorno'])){// Antonio Germani - se non è stata ricaricata la pagina creo il nome del file
+if (!isset($_POST['ritorno'])){// Aurora SRL - se non è stata ricaricata la pagina creo il nome del file
 	$namefile=$admin_aziend['codfis']."_".$datsta."_".sprintf ("%05d",$progr)."_OPERREGI.txt";
 } else { // altrimenti riprendo il nome file già creato
 	$namefile=$_POST['namefile'];
@@ -162,7 +162,7 @@ if (sizeof($result) > 0 AND !isset($_POST['ritorno'])) { // se ci sono movimenti
 						$dd=$gio.$mes.$ann;
 					}
 
-				// >> Antonio Germani - caso produzione da orderman
+				// >> Aurora SRL - caso produzione da orderman
 
 					if (intval($row['id_orderman'])>0 AND $row['operat']==1){ // se è una produzione e il movimento è di entrata
 						// cerco il movimento/i di scarico connesso/i
@@ -289,7 +289,7 @@ if (sizeof($result) > 0 AND !isset($_POST['ritorno'])) { // se ci sono movimenti
 						$datdoc=""; // annullo data documento giustificativo perché con S7 non è ammessa
 					}
 
-				// >> Antonio Germani - Caso Carico da acquisti e magazzino
+				// >> Aurora SRL - Caso Carico da acquisti e magazzino
 
 					if ($row['operat']==1 AND intval($row['id_orderman'])==0){ //se è un carico NON connesso a produzione
 						if ($row['cod_operazione']==10){// carico olio lampante da recupero
@@ -337,7 +337,7 @@ if (sizeof($result) > 0 AND !isset($_POST['ritorno'])) { // se ci sono movimenti
 						}
 					}
 
-				// >> Antonio Germani - Caso Scarico da vendite, magazzino e da DDL (ddt acquisto in conto la vorazione)
+				// >> Aurora SRL - Caso Scarico da vendite, magazzino e da DDL (ddt acquisto in conto la vorazione)
 
 					if ($row['operat']==-1 AND intval($row['id_orderman'])==0){ // se è uno scarico NON connesso a produzione
 						if ($row['tipdoc'] == "DDL" && $row['cod_operazione']="P"){
@@ -405,7 +405,7 @@ if (sizeof($result) > 0 AND !isset($_POST['ritorno'])) { // se ci sono movimenti
 						}
 					}
 
-					// Antonio Germani - campi comuni a tutti i casi
+					// Aurora SRL - campi comuni a tutti i casi
 					$type_array[0]=str_pad($admin_aziend['codfis'], 16); // aggiunge spazi finali
 					$type_array[1]=sprintf ("%010d",$id_sian['val']); // identificativo stabilimento/deposito
 					$type_array[2]=sprintf ("%010d",$nprog); // num. progressivo
@@ -502,7 +502,7 @@ $namefile=substr($namefile,0,-4)
 		</div>
 	</div>
 </div>
-<span class="navbar-fixed-bottom" style="left:20%; z-index:2000;"> Registro di campagna è un modulo di Antonio Germani</span>
+<span class="navbar-fixed-bottom" style="left:20%; z-index:2000;"> Registro di campagna è un modulo di Aurora SRL</span>
 <?php
 require("../../library/include/footer.php");
 ?>

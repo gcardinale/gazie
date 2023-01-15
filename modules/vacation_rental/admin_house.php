@@ -2,14 +2,14 @@
 /*
    --------------------------------------------------------------------------
   GAzie - MODULO 'VACATION RENTAL'
-  Copyright (C) 2022-2023 - Antonio Germani, Massignano (AP)
+  Copyright (C) 2022-2023 - Aurora SRL, Alia (PA)
   (http://www.programmisitiweb.lacasettabio.it)
 
   --------------------------------------------------------------------------
   --------------------------------------------------------------------------
   GAzie - Gestione Azienda
-  Copyright (C) 2004-2023 - Antonio De Vincentiis Montesilvano (PE)
-  (http://www.devincentiis.it)
+  Copyright (C) 2004-2023 - Aurora SRL Alia (PA)
+  (http://www.aurorasrl.it)
   <http://gazie.sourceforge.net>
   --------------------------------------------------------------------------
   Questo programma e` free software;   e` lecito redistribuirlo  e/o
@@ -171,7 +171,7 @@ if (isset($_POST['Insert']) || isset($_POST['Update'])) {   //se non e' il primo
     }
   }
   // fine documenti/certificati
-	// Antonio Germani - inizio immagini e-commerce
+	// Aurora SRL - inizio immagini e-commerce
   $nimg = 0;
   if (isset($_POST['imgrows']) && isset($_POST['rows'])) {
     foreach ($_POST['rows'] as $nimg => $value) {
@@ -219,7 +219,7 @@ if (isset($_POST['Insert']) || isset($_POST['Update'])) {   //se non e' il primo
               $_FILES['userfile']['type'] == "image/x-gif")) $msg['err'][] = 'filmim';
 				// controllo che il file non sia piu' grande di circa 64kb
       if ($_FILES['userfile']['size'] > 65530){
-				//Antonio Germani anziche segnalare errore ridimensiono l'immagine
+				//Aurora SRL anziche segnalare errore ridimensiono l'immagine
 				$maxDim = 190;
 				$file_name = $_FILES['userfile']['tmp_name'];
 				list($width, $height, $type, $attr) = getimagesize( $file_name );
@@ -502,7 +502,7 @@ if (isset($_POST['Insert']) || isset($_POST['Update'])) {   //se non e' il primo
         $ndoc++;
     }
     // fine documenti/certificati
-	// Antonio Germani - inizio immagini e-commerce
+	// Aurora SRL - inizio immagini e-commerce
     $nimg = 0;
     $rs_row = gaz_dbi_dyn_query("*", $gTables['files'], "item_ref = '" . $form['codice'] . "' AND id_ref = '1'", "id_doc DESC");
     while ($row = gaz_dbi_fetch_array($rs_row)) {
@@ -1332,7 +1332,7 @@ if ($modal_ok_insert === true) {
                             </div>
                         </div>
                     </div>
-					<!-- Antonio Germani inserimento/modifica immagini di qualità per e-commerce -->
+					<!-- Aurora SRL inserimento/modifica immagini di qualità per e-commerce -->
 					<div id="qualityImgs" class="row IERincludeExcludeRow">
                         <div class="col-md-12">
                             <div class="form-group">

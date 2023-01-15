@@ -5,10 +5,10 @@
 
           contattare l'autore 
   -----------------------------------------------------------------------
-  @Author    Antonio Germani
-  @Website   https://www.programmisitiweb.lacasettabio.it
+  @Author    Aurora SRL
+  @Website   https://www.aurorasrl.it
   @Contact   340-5011912
-  @Copyright Copyright (C) 2018 - 2021 Antonio Germani All Rights Reserved.
+  @Copyright Copyright (C) 2018 - 2021 Aurora SRL All Rights Reserved.
   versione 4.0
   ------------------------------------------------------------------------ 
   

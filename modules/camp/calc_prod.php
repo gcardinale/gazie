@@ -2,14 +2,14 @@
 /*
 	  --------------------------------------------------------------------------
 	  GAzie - Gestione Azienda
-	  Copyright (C) 2004-2023 - Antonio De Vincentiis Montesilvano (PE)
-	  (http://www.devincentiis.it)
+	  Copyright (C) 2004-2023 - Aurora SRL Alia (PA)
+	  (http://www.aurorasrl.it)
 	  <http://gazie.sourceforge.net>
 	  --------------------------------------------------------------------------
-	  REGISTRO DI CAMPAGNA è un modulo creato per GAzie da Antonio Germani, Massignano AP 
-	  Copyright (C) 2018-2021 - Antonio Germani, Massignano (AP)
-	  https://www.lacasettabio.it 
-	  https://www.programmisitiweb.lacasettabio.it
+	  REGISTRO DI CAMPAGNA è un modulo creato per GAzie da Aurora SRL, Alia PA 
+	  Copyright (C) 2018-2021 - Aurora SRL, Alia (PA)
+	  http://www.aurorasrl.it 
+	  https://www.aurorasrl.it
 	  --------------------------------------------------------------------------
 	  Questo programma e` free software;   e` lecito redistribuirlo  e/o
 	  modificarlo secondo i  termini della Licenza Pubblica Generica GNU
@@ -62,7 +62,7 @@ if (isset($_POST['id_produzione'])){
 require("../../library/include/header.php");
 $script_transl=HeadMain();
 ?>
-<!-- Antonio Germani - Inizio form   -->
+<!-- Aurora SRL - Inizio form   -->
 <form method="POST" enctype="multipart/form-data">
 <input type="hidden" value="<?php echo $_POST['ritorno']; ?>" name="ritorno">
 <div align="center"><font class="FacetFormHeaderFont">Calcolo del costo della produzione</font></div>
@@ -87,7 +87,7 @@ if (!empty($msg)) {
 
 </td>
 </tr>
-<!-- Antonio Germani - Inizio selezione produzione  -->
+<!-- Aurora SRL - Inizio selezione produzione  -->
 <?php
 echo "<tr><td class=\"FacetFieldCaptionTD\">" . $script_transl[0] . "</td><td class=\"FacetDataTD\">\n";
 echo "<select name=\"id_produzione\" class=\"FacetSelect\" onchange=\"this.form.submit()\">\n";
@@ -116,7 +116,7 @@ $query="SELECT * FROM ".$gTables['movmag']." WHERE ".'id_orderman' . " = " . "'"
 	$res = gaz_dbi_query($query);
 	
 while($row = $res->fetch_assoc()){
-	if ($row['operat']<1) { // Antonio Germani evito che ci entri un acquisto > solo per sicurezza poi si potrà pure togliere <
+	if ($row['operat']<1) { // Aurora SRL evito che ci entri un acquisto > solo per sicurezza poi si potrà pure togliere <
 	$imp_riga=(($row['prezzo']-(($row['prezzo']*$row['scorig'])/100))*$row['quanti']);
 	$item3 = gaz_dbi_get_row($gTables['caumag'], "codice", $row['caumag']);
 	echo "<tr><td colspan=\"2\" class=\"FacetFieldCaptionTD\">".gaz_format_date ($row['datdoc'])." ".$item3['descri']." ".$row['artico']." € ".gaz_format_number($imp_riga,2)." </td></tr>";

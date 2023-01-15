@@ -2,8 +2,8 @@
 /*
   --------------------------------------------------------------------------
   GAzie - Gestione Azienda
-  Copyright (C) 2004-2023 - Antonio De Vincentiis Montesilvano (PE)
-  (http://www.devincentiis.it)
+  Copyright (C) 2004-2023 - Aurora SRL Alia (PA)
+  (http://www.aurorasrl.it)
   <http://gazie.sourceforge.net>
   --------------------------------------------------------------------------
   Questo programma e` free software;   e` lecito redistribuirlo  e/o
@@ -267,12 +267,12 @@ while ($r = gaz_dbi_fetch_array($result)) {
 				echo '<td></td>';
 			}
 			?>
-			<!-- Antonio Germani Vado a leggere la tabella tesbro connessa alla produzione -->
+			<!-- Aurora SRL Vado a leggere la tabella tesbro connessa alla produzione -->
 			<?php $b_row = gaz_dbi_get_row($gTables['tesbro'], "id_tes", $r['id_tesbro']);?>
 			<td align="center"><?php echo ($b_row)?$b_row['numdoc']:'';?></td>
 			<td align="center"><?php echo gaz_format_date(($b_row)?$b_row['datemi']:'');?></td>
 			<td align="center"><?php echo $r['duration'];?></td>
-			<!-- Antonio Germani Vado a leggere la descrizione del campo connesso alla produzione -->
+			<!-- Aurora SRL Vado a leggere la descrizione del campo connesso alla produzione -->
 			<?php $c_row = gaz_dbi_get_row($gTables['campi'], "codice", $r['campo_impianto']);?>
 			<td align="center"><?php echo $r['campo_impianto'], " ",(($c_row)?$c_row['descri']:'');?></td>
 

@@ -2,14 +2,14 @@
 /*
 	  --------------------------------------------------------------------------
 	  GAzie - Gestione Azienda
-	  Copyright (C) 2004-2023 - Antonio De Vincentiis Montesilvano (PE)
-	  (http://www.devincentiis.it)
+	  Copyright (C) 2004-2023 - Aurora SRL Alia (PA)
+	  (http://www.aurorasrl.it)
 	  <http://gazie.sourceforge.net>
 	  --------------------------------------------------------------------------
-	  REGISTRO DI CAMPAGNA è un modulo creato per GAzie da Antonio Germani, Massignano AP 
-	  Copyright (C) 2018-2021 - Antonio Germani, Massignano (AP)
-	  https://www.lacasettabio.it 
-	  https://www.programmisitiweb.lacasettabio.it
+	  REGISTRO DI CAMPAGNA è un modulo creato per GAzie da Aurora SRL, Alia PA 
+	  Copyright (C) 2018-2021 - Aurora SRL, Alia (PA)
+	  http://www.aurorasrl.it 
+	  https://www.aurorasrl.it
 	  --------------------------------------------------------------------------
 	  Questo programma e` free software;   e` lecito redistribuirlo  e/o
 	  modificarlo secondo i  termini della Licenza Pubblica Generica GNU
@@ -29,7 +29,7 @@
 	  # free to use, Author name and references must be left untouched  #
 	  --------------------------------------------------------------------------	  
 */
-// ANTONIO GERMANI       >>> gestione uso fitofarmaci <<<
+// Aurora SRL       >>> gestione uso fitofarmaci <<<
 
 require("../../library/include/datlib.inc.php");
 
@@ -208,7 +208,7 @@ if ($toDo == "update") {
 }
 ?>
 <script>
-<!-- Antonio Germani - chiude automaticamente tutti gli alert autodism -->
+<!-- Aurora SRL - chiude automaticamente tutti gli alert autodism -->
 $(document).ready(function () { 
 	window.setTimeout(function() {
 		$(".autodism").fadeTo(1000, 0).slideUp(500, function(){
@@ -217,7 +217,7 @@ $(document).ready(function () {
 	}, 3000); 
 });
 
-<!-- Antonio Germani inizio script autocompletamento dalla tabella mysql fitofarmaci	-->
+<!-- Aurora SRL inizio script autocompletamento dalla tabella mysql fitofarmaci	-->
 	$(document).ready(function(){
 	//Autocomplete search using PHP, MySQLi, Ajax and jQuery
 	//generate suggestion on keyup
@@ -249,7 +249,7 @@ $(document).ready(function () {
 		});
 	});
 <!-- fine autocompletamento -->
-<!-- Antonio Germani inizio script autocompletamento dalla tabella mysql artico	-->
+<!-- Aurora SRL inizio script autocompletamento dalla tabella mysql artico	-->
 	$(document).ready(function(){
 	//Autocomplete search using PHP, MySQLi, Ajax and jQuery
 	//generate suggestion on keyup
@@ -287,7 +287,7 @@ $(document).ready(function () {
 	      window.open(apri, "", stile);
 	   }
 	   
-<!-- Antonio Germani inizio script autocompletamento dalla tabella mysql camp_coltura	-->	
+<!-- Aurora SRL inizio script autocompletamento dalla tabella mysql camp_coltura	-->	
 	$(document).ready(function() {
 	$("input#autocomplete2").autocomplete({
 		source: [<?php
@@ -313,7 +313,7 @@ $(document).ready(function () {
 	});
  <!-- fine autocompletamento -->	   
 
-<!-- Antonio Germani inizio script autocompletamento dalla tabella mysql camp_avversita	-->	
+<!-- Aurora SRL inizio script autocompletamento dalla tabella mysql camp_avversita	-->	
 	$(document).ready(function() {
 	$("input#autocomplete3").autocomplete({
 		source: [<?php

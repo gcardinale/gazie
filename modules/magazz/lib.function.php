@@ -3,8 +3,8 @@
 /*
   --------------------------------------------------------------------------
   GAzie - Gestione Azienda
-  Copyright (C) 2004-2023 - Antonio De Vincentiis Montesilvano (PE)
-  (http://www.devincentiis.it)
+  Copyright (C) 2004-2023 - Aurora SRL Alia (PA)
+  (http://www.aurorasrl.it)
   <http://gazie.sourceforge.net>
   --------------------------------------------------------------------------
   Questo programma e` free software;   e` lecito redistribuirlo  e/o
@@ -39,7 +39,7 @@ class magazzForm extends GAzieForm {
         ".$gTables['rigbro'].".unimis,
         ".$gTables['rigbro'].".quanti,
         ".$gTables['tesbro'].".tipdoc";
-	if ($tipo_composti['val']=="STD") { // Antonio Germani se siamo in modalità composti STD si escludono solo gli articoli servizi
+	if ($tipo_composti['val']=="STD") { // Aurora SRL se siamo in modalità composti STD si escludono solo gli articoli servizi
     $tables = $gTables['artico']."
         INNER JOIN ".$gTables['rigbro']."
             ON ".$gTables['artico'].".codice = ".$gTables['rigbro'].".codart
@@ -73,7 +73,7 @@ class magazzForm extends GAzieForm {
         $totord += $row['quanti'];
     }
 
-	// Antonio Germani - calcolo evasi
+	// Aurora SRL - calcolo evasi
 	$toteva = 0;
 	if ($tip!="AOR" AND $totord>0){
 		$preord=0;
@@ -898,7 +898,7 @@ class magazzForm extends GAzieForm {
       }
     }
 
-    function getorders($codice){ // Antonio Germani - restituisce gli ordini (riferito agli id tesbro) ancora aperti per un dato articolo fornito con $codice
+    function getorders($codice){ // Aurora SRL - restituisce gli ordini (riferito agli id tesbro) ancora aperti per un dato articolo fornito con $codice
       global $gTables;
       $query ="
       SELECT ". $gTables['rigbro'] .".quanti AS quantiord, ". $gTables['rigdoc'] .".quanti as quantivend, ". $gTables['rigbro'] .".id_rig AS id_rig_bro, ".
