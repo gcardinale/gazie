@@ -26,7 +26,7 @@ require("../../library/include/datlib.inc.php");
 $admin_aziend=checkAdmin(9);
 
 // Qui viene tenuto dagli sviluppatori la lista dei siti che hanno messo a disposizione il file di check della propria versione
-$tutor[1] = array('zone'=>'Abruzzo','city'=>'Montesilvano (PE)','sms'=>'+393383121161','web'=>'https://www.devincentiis.it','check'=>'http://www.aurorasrl.it/file_ver');
+$tutor[1] = array('zone'=>'Sicily','city'=>'Alia (PA)','sms'=>'+393277549296','web'=>'https://www.aurorasrl.it','check'=>'http://www.aurorasrl.it/file_ver');
 // fine lista
 $configurazione = gaz_dbi_get_row($gTables['config'],'variable','update_url');
 // se si ha un sito "personalizzato" per il download diverso da quello ufficiale su Sourceforge: modifico quello di default

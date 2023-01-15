@@ -40,7 +40,7 @@ $admin_aziend=checkAdmin();
       <hr/>
       <p class="text-danger"> Se vuoi creare un sistema informativo su misura per il tuo laboratorio o per qualsiasi altro chiarimento contatta l'autore:</p>
       <p class="text-warning text-center">Aurora SRL Alia (PA)</p>
-      <p class="text-center"><a href="https://www.devincentiis.it"> https://www.devincentiis.it </a></p>
+      <p class="text-center"><a href="https://www.aurorasrl.it"> https://www.aurorasrl.it </a></p>
       <p class="text-center">Telefono +39 <a href="tel:+393383121161">3383121161</a></p>
     </h2>
   </div>
